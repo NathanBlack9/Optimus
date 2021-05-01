@@ -1,0 +1,32 @@
+.advantages{
+  width: 100%;
+
+  &__inner{
+    padding: 60px 0;
+  }
+
+  &__list{
+    max-width: 504px;
+    margin: 0 auto;
+    margin-top: 61px;
+    box-shadow: $shadow;
+    background-color: $shadow-Color;
+  }
+
+  &__item{
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child){
+      margin-bottom: 25px;
+    }
+  }
+
+  &__text{
+    margin-left: 13px;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    color: black;
+  }
+}

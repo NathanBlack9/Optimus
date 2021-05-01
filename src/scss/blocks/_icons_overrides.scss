@@ -1,0 +1,64 @@
+.header_icon-info{
+  @include TransitionMix(180ms);
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 0;
+  line-height: 33px;
+  color: #000000;
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.fa-phone-alt{
+  font-size: 32px;
+  text-shadow: 5px 3px 4px rgba(0, 0, 0, 0.35);
+
+  &.active{
+    color: #0FF041;
+    outline: none;
+
+    &+.header_icon-info{
+      font-size: 26px;
+    }
+  }
+}
+
+.fa-envelope{
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.35);
+
+  &.active{
+    color: #08A6FE;
+    outline: none;
+
+    &+.header_icon-info{
+      font-size: 26px;
+    }
+  }
+}
+
+.fa-whatsapp{
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.35);
+  
+  &.active{
+    color: #0FF041;
+    outline: none;
+
+    &+.header_icon-info{
+      font-size: 26px;
+    }
+  }
+}
+
+.fa-viber{
+  font-size: 40px;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.35);
+
+  &.active{
+    color: #7000FE;
+    outline: none;
+  
+    &+.header_icon-info{
+      font-size: 26px;
+    }
+  }
+}

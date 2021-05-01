@@ -1,0 +1,28 @@
+html {
+	box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+}
+
+h1,h2,h3,
+h4,h5,h6{
+	margin: 0;
+}
+
+body {
+	font-family: 'Dosis', sans-serif;
+  font-style: normal;
+	background-color: $main-Color;
+  color:black;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
