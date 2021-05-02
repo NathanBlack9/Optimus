@@ -2,8 +2,9 @@
   width: 100%;
   box-shadow: 5px 6px 22px #BB8927;
   padding: 0;
+  margin-top: 55px;
   
-  &__inner{
+  &__inner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,27 +17,59 @@
     color: black;
   }
 
-  &__nav{
+  &__nav {
     display: flex;
     flex-direction: row;
     color: black;
 
-    &-item{
+    &-item {
       text-decoration: none;
       position: relative;
       z-index: 1;
-      @include Underline(white);
+      @include Underline(white, -14px);
 
       &:active,
       &:focus,
-      &:visited{
+      &:visited {
         color: black;
         outline: none;
       }
 
-      &:not(:last-child){
+      &:not(:last-child) {
         margin-right: 44px;
       }
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    
+    &-item {
+      position: relative;
+      z-index: 1;
+      
+      &:not(:first-child) {
+        margin-left: 44px;
+      }
+
+      &:active,
+      &:focus,
+      &:visited {
+        color: black;
+        outline: none;
+      }
+    }
+
+    &-img {
+      position: relative;
+      top: 3px;
+    }
+
+    &-text {
+      text-decoration: none;
+      color: black;
+      @include Underline(white, 10px);
     }
   }
 }

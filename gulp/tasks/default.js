@@ -1,3 +1,4 @@
-const gulp = require('gulp');
+// const gulp = require('gulp');
+import gulp from 'gulp'
 
-gulp.task('default', gulp.parallel('watch', 'css', 'compressImg', 'server'));
+gulp.task('default', gulp.parallel('watch', 'css', 'compressImg'));

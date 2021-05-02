@@ -2,11 +2,11 @@
   transition: all $delay linear;
 }
 
-@mixin Underline($color) {
+@mixin Underline($color, $left) {
   &::before{
     content: '';
     position: absolute;
-    left: -14px;
+    left: $left;
     bottom: 0;
     height: 9px;
     width: 76px;

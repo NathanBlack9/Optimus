@@ -1,5 +1,8 @@
-const gulp     = require('gulp'),
-      imagemin = require('gulp-imagemin');
+// const gulp     = require('gulp'),
+//       imagemin = require('gulp-imagemin');
+
+import gulp from 'gulp'
+import imagemin from 'gulp-imagemin'
 
 gulp.task('compressImg', function() {
   gulp.src('src/img/**/*')

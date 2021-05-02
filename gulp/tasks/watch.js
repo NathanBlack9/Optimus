@@ -1,5 +1,8 @@
-const gulp        = require('gulp'),
-      browserSync = require('browser-sync');
+// const gulp        = require('gulp'),
+//       browserSync = require('browser-sync');
+
+      import gulp from 'gulp'
+      import browserSync from 'browser-sync'
 
 gulp.task('watch', function() {
   gulp.watch("src/scss/**/*.+(scss|sass)", gulp.parallel('css'), browserSync.reload);
