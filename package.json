@@ -1,12 +1,12 @@
 {
   "name": "optpostavka",
   "version": "1.0.0",
-  "description": "",
+  "description": "frontend + backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Suren",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.14",
@@ -19,5 +19,14 @@
     "gulp-minify": "^3.1.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanBlack9/Optimus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NathanBlack9/Optimus/issues"
+  },
+  "homepage": "https://github.com/NathanBlack9/Optimus#readme"
 }

@@ -1,0 +1,42 @@
+.menu {
+  width: 100%;
+  box-shadow: 5px 6px 22px #BB8927;
+  padding: 0;
+  
+  &__inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35.5px 44px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: black;
+  }
+
+  &__nav{
+    display: flex;
+    flex-direction: row;
+    color: black;
+
+    &-item{
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      @include Underline(white);
+
+      &:active,
+      &:focus,
+      &:visited{
+        color: black;
+        outline: none;
+      }
+
+      &:not(:last-child){
+        margin-right: 44px;
+      }
+    }
+  }
+}

@@ -20,6 +20,11 @@ body {
   font-style: normal;
 	background-color: $main-Color;
   color:black;
+
+	*::selection{
+		background-color: $main-Color;
+    color: white;
+	}
 }
 
 img {

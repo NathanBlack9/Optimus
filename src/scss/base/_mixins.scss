@@ -2,6 +2,24 @@
   transition: all $delay linear;
 }
 
+@mixin Underline($color) {
+  &::before{
+    content: '';
+    position: absolute;
+    left: -14px;
+    bottom: 0;
+    height: 9px;
+    width: 76px;
+    background-color: $color;
+    z-index: -1;
+    @include TransitionMix(150ms);
+  }
+  
+  &:hover:before{
+    left: -5px;
+  }
+}
+
 // @mixin burger(){
 //   @media screen and (max-width:1055px){
 //     #menu__toggle {

@@ -4,6 +4,10 @@
   line-height: 30px;
   max-width: 420px;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  // @include Underline;
+
 
   &__block{
     width: 504px;
