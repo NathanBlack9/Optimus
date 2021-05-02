@@ -10,11 +10,16 @@
   &__block{
     width: 504px;
     height: 180px;
-    background-color: $main-Color;
+    background-color: $orange;
     box-shadow: 5px 6px 22px #BB8927;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &.modal-title{
+      width: 495px;
+      height: 96px; 
+    }
   }
 }

@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+  background: transparent;
+  
+  &-name, 
+  &-name ~ * {
+    margin-bottom: 20px;
+  }
+
+  &-text {
+    margin-bottom: 0;
+    resize: none;
+    box-shadow: $shadow;
+    min-height: 190px;
+  }
+
+  .inp {
+    border: 0;
+    outline: none;
+    color: $halfBlack;
+    background-color: $inp;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: black;
+    padding: 21px 20px;
+  }
+}

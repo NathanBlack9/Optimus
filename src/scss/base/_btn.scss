@@ -1,0 +1,39 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 384px;
+  min-height: 62px;
+  background-color: $red;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+  color: white;
+  box-shadow: 4px 6px 4px rgba(black, 0.25);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    z-index: 1;
+    @include Underline($halfBlack, 0)
+  }
+}
+
+.btn__area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px;
+}
+
+.form-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}

@@ -10,13 +10,10 @@
   <section class="assortment">
     <div class="container">
       <div class="assortment__inner">
-        
         <div class="title__block">
           <p class="title">Мы предлагаем большой ассортимент запчастей</p>
         </div>
-
         <div class="assortment-slider assortment-slider-js">
-
           <div class="assortment-slider__item">
             <div class="assortment-slider__img">
               <img src="img/assSlider/1.jpg" alt="picture">
@@ -32,12 +29,34 @@
               <img src="img/assSlider/3.jpg" alt="picture">
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </section>
+  <div class="btn__area">
+    <a href="#!" data-modal="contact" class="btn"><span>Связаться с продавцом</span></a>
+  </div>
+
+  <div class="modal-overlay">
+    <div class="modal" id="contact">
+      <div class="title__block modal-title">
+        <p class="title">Связаться с продавцом</p>
+      </div>
+      <form action="#" method="post" class="form">
+        <input type="name" class="form-name inp" placeholder="Имя*" required>
+        <input type="email" class="form-email inp" placeholder="Почтовый ящик*" required>
+        <input type="tel" class="form-tel inp" placeholder="Телефон*" required>
+        <textarea class="form-text inp" placeholder="Сообщение*" required></textarea>
+        <div class="btn__area">
+          <button class="btn"><span>Отправить</span></button>
+        </div>
+      </form>
+      <div class="form-close">
+        <img src="/img/close.svg" alt="Закрыть">
+      </div>
+    </div>
+  </div>
+
   <section class="companys" id="companys">
     <div class="container">
       <div class="companys__inner">
@@ -104,9 +123,6 @@
     </div>
   </section>
 
-  <script type="module" src="js/common-min.js"></script>
-  <script src="js/vendor/iconFont.min.js"></script>
-  <script src="js/vendor/jquery-3.6.0.min.js"></script>
-  <script src="js/vendor/slick.min.js"></script>
+  <%- include('./partials/scripts'); %>
 </body>
 </html>

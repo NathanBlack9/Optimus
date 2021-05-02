@@ -12,7 +12,6 @@ app.use('/styles', express.static(__dirname + 'build/styles'))
 
 app.set('view engine', 'ejs')
 
-
 app.use(serverRoutes);
 
 app.get('/', (req, res) => {
