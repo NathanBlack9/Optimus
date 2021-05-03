@@ -1,27 +1,35 @@
 // const mysql = require('mysql');
 import express from 'express';
 import path from 'path';
-import serverRoutes from './routes/servers.js';
+
+// const contact = require('./routes/contact.js');
+import contact from './routes/contact.js';
 
 const __dirname = path.resolve();
 const port = process.env.port || 3000;
 const app = express();
+
 
 app.use(express.static(__dirname + '/build'));
 app.use('/styles', express.static(__dirname + 'build/styles'))
 
 app.set('view engine', 'ejs')
 
-app.use(serverRoutes);
+app
+  .route('/')
+  .get((req, res) => {
+    res.render('index', {title: 'ОптПоставка'})
+  });
 
-app.get('/', (req, res) => {
-  res.render('index', {title: 'ОптПоставка'})
-})
-
-app.get('/catalog', (req, res) => {
-  res.render('catalog', {title: 'Каталог'})
-})
-
+app
+  .route('/catalog')
+  .get((req, res) => {
+    res.render('catalog', {title: 'Каталог'})
+  })
+//-------
+app.use(express.json());
+app.use('/contact', contact);
+//-------
 // app.get('/', (req,res) =>{
 //   // res.send('asdas'); //сообщение
 //   res.sendFile(path.resolve(__dirname, 'build', 'index.html')); //файл
