@@ -5,9 +5,9 @@ $(document).ready(function(){
       adaptiveHeight:false,
       slidesToShow:1,
       slidesToScroll:1,
-      speed: 1000,
+      speed: 500,
       infinite:true,
-      autoplay:false,
+      autoplay:true,
       autoplaySpeed: 2000,
       draggable:true,
       swipe:true,
@@ -26,5 +26,19 @@ $(document).ready(function(){
       //         }
       //     }
       // ]
+  });
+  $('.feedback-slider-js').slick({
+      arrows: true,
+      dots: true,
+      adaptiveHeight:false,
+      slidesToShow:2,
+      slidesToScroll:1,
+      speed: 500,
+      infinite:true,
+      autoplay:false,
+      autoplaySpeed: 2000,
+      draggable:true,
+      swipe:true,
+      variableWidth:false
   })
 });

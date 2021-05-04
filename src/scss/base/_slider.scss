@@ -38,11 +38,11 @@
         }
       }
     }
+
     & button {
       font-size: 0;
       width: 15px;
       height: 15px;
-      background-color: white;
       border-radius: 50%;
       outline: none;
       background-color: #DDE0E4;
@@ -51,10 +51,10 @@
       @include TransitionMix(180ms);
 
       &:hover {
-        background-color: black;
+        background-color: $halfBlack;
       }
     }
-}
+  }
 }
 
 .assortment-slider,

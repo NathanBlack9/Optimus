@@ -10,6 +10,9 @@ desktop.ini
 # production
 /build
 
+#API's
+/views/partials/mapAPI.ejs
+
 # misc
 .DS_Store
 .env.local

@@ -1,11 +1,5 @@
 import './iconChange-min.js';
-import './assSlider-min.js';
-
-// var xhr = new XMLHttpRequest();
-
-// xhr.open('GET', 'catalog', true);
-//   console.log(xhr.req);
-// xhr.send(null);
+import './slider-min.js';
 
 //modal windows
 $('[data-modal=contact]').on('click', function() {
@@ -15,7 +9,51 @@ $('.form-close').on('click', () => {
   $('.modal-overlay, #contact, #login, #personal').fadeOut(500);
 })
 //-------------
+//Yandex Map init
+ymaps.ready(init);
+  function init(){
+    var myMap = new ymaps.Map("map", {
+        center: [55.73865681, 37.62860303],
+        zoom: 17,
+        controls: ['largeMapDefaultSet','routeButtonControl']
+    });
 
+    myMap.controls
+      .remove('rulerControl')
+      .remove('fullscreenControl')
+      .remove('searchControl')
+      .remove('routeButton');
+
+      var control = myMap.controls.get('routeButtonControl');
+      control.routePanel.state.set({
+        fromEnabled: true,
+        from: "",
+        to: "Пятницкая улица, 37",
+        type: "auto"
+      });
+
+    myMap.behaviors.disable([
+      'drag',
+      'scrollZoom'
+    ]);
+
+    var placemark = new ymaps.Placemark([55.73864469, 37.62858697], {
+      hideIcon: false,
+      balloonContentHeader: "г. Москва",
+      balloonContentBody: "ул. Пятницкая, д. 37",
+      balloonContentFooter: "офис 61",
+      hindContent: "Мы здесь!"
+    },
+    {
+      iconLayout: 'default#image',
+      iconImageHref: '/img/map-placemark.svg',
+      iconImageSize: [26, 37],
+      iconImageOffset: [-13, -37]
+    });
+
+    myMap.geoObjects.add(placemark);
+  }
+//---------------
 //AJAX---------
 $('form.ajax-contact-form').on('submit', function() {
   var that = $(this),

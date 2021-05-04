@@ -9,6 +9,7 @@
     position: relative;
     display: flex;
     min-width: 0;
+    margin-bottom: 75px;
 
     &__item {
       min-width: 0;
@@ -17,7 +18,7 @@
       padding: 30px;
       display: flex;
       flex-direction: column;
-      margin-right: 50px;
+      margin: 0 30px;
 
       &:focus {
         outline: none;
