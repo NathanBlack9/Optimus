@@ -6,7 +6,7 @@ import path from 'path';
 import contact from './routes/contact.js';
 
 const __dirname = path.resolve();
-const port = process.env.port || 3000;
+const port = process.env.port || 8080;
 const app = express();
 
 

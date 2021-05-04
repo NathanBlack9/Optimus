@@ -1,14 +1,12 @@
-// const gulp        = require('gulp'),
-//       minify      = require('gulp-minify'),
-//       browserSync = require('browser-sync');
-
 import gulp from 'gulp'
 import browserSync from 'browser-sync'
-import minify from 'gulp-minify'
+import terser from 'gulp-terser'
+import concat from 'gulp-concat'
 
 gulp.task('compressJs', function() {
-  return gulp.src(['src/js/modules/*.js','src/js/*.js'])
-    .pipe(minify())
-    .pipe(gulp.dest('build/js'))
+  return gulp.src(['build/js/modules/*.js','build/js/*.js'])
+    .pipe(concat('common-min.js'))
+    .pipe(terser())
+    .pipe(gulp.dest('build/js/public'))
     .pipe(browserSync.stream());
 });

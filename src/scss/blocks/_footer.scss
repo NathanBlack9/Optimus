@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 31px 0;
+  }
+
+  &__copyright,
+  &__company {
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 16px;
+    color: rgba(black, 0.7);
+  }
+}

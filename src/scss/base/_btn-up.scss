@@ -1,0 +1,19 @@
+#button-up { 
+  display: none;
+  position: fixed;
+  right: 35px;
+  bottom: 50px;			
+  color: white;
+  background-color: $halfBlack;
+  text-align: center;
+  font-size: 30px;
+  padding: 12px 15px;
+  @include TransitionMix(300ms);
+
+  &:hover {
+    cursor: pointer;
+    background-color: transparent;
+    @include TransitionMix(300ms);
+  }
+}
+ 
