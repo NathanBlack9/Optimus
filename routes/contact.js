@@ -1,7 +1,7 @@
 "use strict";
 import express from 'express';
-const router = express.Router();
 import bodyParser from 'body-parser';
+const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router
