@@ -22,13 +22,35 @@ $('form.ajax-contact-form').on('submit', function() {
     type: method,
     data: data,
     success: function (response) {
-      // console.log(response);
-      let message = $('.form-message')
+      console.log(response);
+      let message;
+      if(url == '/contact'){
+        message = $('.contact-message');
+      }
+      else if(url == '/login'){
+        message = $('.login-message');
+      }
       message.html(response);
       message.css('color', 'green');
+    },
+    error: function (response) {
+      let message;
+      if(url == '/contact'){
+        message = $('.contact-message');
+        message.html('Данные введены некореектно');
+      }
+      else if(url == '/login'){
+        message = $('.login-message');
+        message.html('Такого пользователя не существует');
+      }
+      message.css('color', 'red');
     }
   });
 
   return false;
 });
 //-------------
+      
+function error() {
+
+}

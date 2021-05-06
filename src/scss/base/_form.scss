@@ -2,25 +2,14 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 35px;
   background: transparent;
-  
-  &-name, 
-  &-name ~ * {
-    margin-bottom: 20px;
-  }
+  position: relative;
 
   &-text {
-    margin-bottom: 0;
     resize: none;
     box-shadow: $shadow;
     min-height: 190px;
-  }
-
-  &-message {
-    // display: none;
-    font-size: 14px;
-    margin-top: 10px;
   }
 
   .inp {
@@ -33,5 +22,27 @@
     line-height: 30px;
     color: black;
     padding: 21px 20px;
+    margin-bottom: 20px;
   }
+
+  .password-control {
+    position: absolute;
+    top: 39%;
+	  right: 5%;
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+    background: url('/img/password-view.svg') 50% 50% no-repeat;
+
+    &.view {
+      background: url('/img/password-no-view.svg') 50% 50% no-repeat;
+    }
+  }
+}
+
+.login-message,
+.contact-message {
+  min-height: 14px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }

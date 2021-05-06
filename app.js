@@ -2,8 +2,10 @@
 import express from 'express';
 import path from 'path';
 
-// const contact = require('./routes/contact.js');
+//--contact-form
 import contact from './routes/contact.js';
+//--login-form
+import login from './routes/login.js';
 
 const __dirname = path.resolve();
 const port = process.env.port || 8080;
@@ -27,7 +29,8 @@ app
     res.render('catalog', {title: 'Каталог'})
   })
 //-------
-app.use(express.json());
+// app.use(express.json());
+app.use('/login', login);
 app.use('/contact', contact);
 //-------
 // app.get('/', (req,res) =>{
