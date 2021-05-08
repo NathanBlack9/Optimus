@@ -13,6 +13,9 @@ desktop.ini
 # db
 /f
 
+# private Routes
+/routes/db.js
+
 #API's
 /views/partials/mapAPI.ejs
 

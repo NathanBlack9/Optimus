@@ -4,7 +4,7 @@ import path from 'path';
 //--contact-form
 import contact from './routes/contact.js';
 //--login-form
-import login from './routes/login.js';
+import login from './routes/auth.js';
 
 const __dirname = path.resolve();
 const port = process.env.port || 8080;
@@ -28,15 +28,9 @@ app
     res.render('catalog', {title: 'Каталог'})
   });
 
-// app
-//   .route('/login')
-//   .post((req, res) => {
-//     res.render('index-login', {title: 'ОптПоставка'})
-//   })
-
 //-------
-// app.use(express.json());
 
+app.use(express.json());
 app.use('/login', login);
 app.use('/contact', contact);
 

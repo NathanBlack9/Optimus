@@ -25,28 +25,30 @@ $('form.ajax-contact-form').on('submit', function() {
       console.log('success');
       console.log(response);
       let message;
+      message.html(response);
+      message.css('color', 'green');
+
       if(url == '/contact'){
         message = $('.contact-message');
       }
-      else if(url == '/login'){
+      if(url == '/login'){
         message = $('.login-message');
-        setInterval(function(){window.location = "/login"}, 1500);
+        setInterval(function(){window.location = "/login"}, 1000);
       }
-      message.html(response);
-      message.css('color', 'green');
     },
     error: function (response) {
       console.log('error');
       let message;
+      message.css('color', 'red');
+
       if(url == '/contact'){
         message = $('.contact-message');
         message.html('Данные введены некореектно');
       }
-      else if(url == '/login'){
+      if(url == '/login'){
         message = $('.login-message');
         message.html('Такого пользователя не существует');
       }
-      message.css('color', 'red');
     }
   });
 
