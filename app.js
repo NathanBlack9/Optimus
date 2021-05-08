@@ -1,7 +1,6 @@
 // const mysql = require('mysql');
 import express from 'express';
 import path from 'path';
-
 //--contact-form
 import contact from './routes/contact.js';
 //--login-form
@@ -27,11 +26,26 @@ app
   .route('/catalog')
   .get((req, res) => {
     res.render('catalog', {title: 'Каталог'})
-  })
+  });
+
+// app
+//   .route('/login')
+//   .post((req, res) => {
+//     res.render('index-login', {title: 'ОптПоставка'})
+//   })
+
 //-------
 // app.use(express.json());
+
 app.use('/login', login);
 app.use('/contact', contact);
+
+// app
+//   .route('/logined')
+//   .get((req, res) => {
+//     res.render('index-login', {title: 'ОптПоставка'})
+//   })
+
 //-------
 // app.get('/', (req,res) =>{
 //   // res.send('asdas'); //сообщение

@@ -5,11 +5,16 @@
   margin-top: 35px;
   background: transparent;
   position: relative;
+  padding: 0 12px;
 
   &-text {
     resize: none;
     box-shadow: $shadow;
     min-height: 190px;
+  }
+
+  &-password {
+    padding-right: 50px !important;
   }
 
   .inp {

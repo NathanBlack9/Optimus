@@ -10,6 +10,9 @@ desktop.ini
 # production
 /build
 
+# db
+/f
+
 #API's
 /views/partials/mapAPI.ejs
 

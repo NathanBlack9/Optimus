@@ -22,6 +22,7 @@ $('form.ajax-contact-form').on('submit', function() {
     type: method,
     data: data,
     success: function (response) {
+      console.log('success');
       console.log(response);
       let message;
       if(url == '/contact'){
@@ -29,11 +30,13 @@ $('form.ajax-contact-form').on('submit', function() {
       }
       else if(url == '/login'){
         message = $('.login-message');
+        setInterval(function(){window.location = "/login"}, 1500);
       }
       message.html(response);
       message.css('color', 'green');
     },
     error: function (response) {
+      console.log('error');
       let message;
       if(url == '/contact'){
         message = $('.contact-message');
@@ -50,7 +53,3 @@ $('form.ajax-contact-form').on('submit', function() {
   return false;
 });
 //-------------
-      
-function error() {
-
-}

@@ -2,12 +2,13 @@
   <div class="title__block modal-title">
     <p class="title">Вход</p>
   </div>
-  <form action="/login" method="post" class="form ajax-contact-form">
+  <form action="/login" method="POST" class="form ajax-contact-form">
     <input type="email"  name="email" class="form-email inp" placeholder="Почтовый ящик" required>
-    <input type="password" name="password" class="form-password inp" 
+    <input type="password" name="password" class="inp form-password" 
       placeholder="Пароль" 
       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-      title="Должен содержать минимум 8 символов, из них хотя бы одной цифры и одной прописной буквы латинского алфавита"
+      maxlength="20"
+      title="Пароль должен содержать от 8 до 20 символов, из них хотя бы одной цифры и одной прописной буквы латинского алфавита"
       required>
     <a href="#!" class="password-control"></a>
     <label class="login-message"></label>
@@ -16,6 +17,6 @@
     </div>
   </form>
   <div class="form-close">
-    <img src="/img/close.svg" alt="Закрыть">
+    <img src="/img/close.svg" alt="Закрыть" title="Закрыть">
   </div>
 </div>

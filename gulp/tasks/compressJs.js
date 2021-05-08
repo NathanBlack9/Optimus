@@ -5,7 +5,7 @@ import concat from 'gulp-concat'
 import cleanDest from 'gulp-clean-dest'
 
 gulp.task('compressJs', function() {
-  return gulp.src(['build/js/modules/*.js','build/js/*.js'])
+  return gulp.src(['src/js/modules/*.js','src/js/*.js'])
     .pipe(cleanDest('build/js/public'))  
     .pipe(concat('common-min.js'))
     .pipe(terser())

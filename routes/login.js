@@ -9,7 +9,13 @@ router
   .post(urlencodedParser, (req, res) => {
     console.log(req.body);//само сообщение
     var message = 'Вход успешно осуществлен!';
-    res.end(message);
+    res.status(200).end(message);
+  });
+
+router
+  .route('/')
+  .get((req, res) => {
+    res.render('index-login', {title: 'ОптПоставка'})
   });
 
 export default router;

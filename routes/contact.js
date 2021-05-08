@@ -9,7 +9,7 @@ router
   .post(urlencodedParser, (req, res) => {
     console.log(req.body);//само сообщение
     var message = 'Ваша заявка успешно отправлена!<br> Продавец связжется с вами в ближайщее время';
-    res.end(message);
+    res.status(202).end(message);
   });
 
 export default router;
