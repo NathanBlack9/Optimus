@@ -12,6 +12,7 @@ desktop.ini
 
 # db
 /f
+db.sql
 
 # private Routes
 /routes/db.js
