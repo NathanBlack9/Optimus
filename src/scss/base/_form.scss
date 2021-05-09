@@ -32,8 +32,8 @@
 
   .password-control {
     position: absolute;
-    top: 39%;
-	  right: 5%;
+    top: 34%;
+    right: 6%;
     display: inline-block;
     width: 26px;
     height: 20px;
@@ -42,11 +42,100 @@
     &.view {
       background: url('/img/password-no-view.svg') 50% 50% no-repeat;
     }
+
+    &.reg--pass {
+      top: 56%;
+      right: 6%;
+    } 
+  }
+
+  &-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.relogin__area {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .relogin__link {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: black;
+  }
+}
+
+.register__area { //in login modal 
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: black;
+
+  .register__link {
+    text-decoration-line: underline;
+    position: relative;
+    margin-left: 10px;
+    color: black;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-43%);
+      width: 17px;
+      height: 11px;
+      background: url('/img/register-arrow.svg') 0 0 no-repeat;
+    }
+  } 
+}
+
+.checkbox__area {
+  display: flex;
+  flex-direction: row;
+  
+  #personal-data__check {
+    cursor: pointer;
+  }
+
+  .personal-data {
+    margin-left: 11px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: black;
+    cursor: pointer;
+
+    a {
+      color: black;
+
+      &:active {
+        color: $red;
+      }
+
+      &:first-child {
+        text-decoration: underline;
+        text-decoration-style: dashed;
+      }
+    }
   }
 }
 
 .login-message,
-.contact-message {
+.contact-message,
+.register-message {
   min-height: 14px;
   font-size: 14px;
   margin-bottom: 10px;

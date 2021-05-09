@@ -23,6 +23,34 @@
 }
 
 #login,
-#contact {
+#contact,
+#personal {
   display: none;
+}
+
+#personal.modal {
+  padding: 40px 46px;
+  
+  .title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .form-close {
+    width: 20px;
+    height: 20px;
+    top: 10%;
+    right: 5%;
+  }
+
+  .personal-data__text {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: black;
+    max-width: 400px;
+  }
 }

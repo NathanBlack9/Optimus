@@ -26,17 +26,18 @@ app
     res.render('catalog', {title: 'Каталог'})
   });
 
+app
+  .route('/register')
+  .get((req, res) => {
+    res.render('register', {title: 'Регистрация'})
+  });
+
 //-------
 
 app.use(express.json());
 app.use('/login', auth);
 app.use('/contact', contact);
 
-//-------Cookies & sessions------
-
-
-
-//-------------------------------
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`);
