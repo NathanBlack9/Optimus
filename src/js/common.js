@@ -21,9 +21,8 @@ $('form.ajax-contact-form').on('submit', function() {
     url : url, 
     type: method,
     data: data,
-    success: function (request,response) {
+    success: function (response) {
       console.log('success');
-      console.log(response);
       let message;
       
       switch (url) {
@@ -33,14 +32,13 @@ $('form.ajax-contact-form').on('submit', function() {
         case '/login':
           message = $('.login-message');
           $('html').css('cursor', 'progress');
-          setInterval(function(){window.location = "/login"}, 1500);
+          setInterval(function(){window.location = "/login"}, 1000);
           break;
         case '/register':
           message = $('.register-message');
           $('html').css('cursor', 'progress');
           break;
       }
-      console.log(request);
       message.html(response);
       message.css('color', 'green');
     },

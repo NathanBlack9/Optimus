@@ -13,8 +13,12 @@
         <div class="title__block modal-title">
           <p class="title">Зарегистрироваться</p>
         </div>
+        <aside class="aside__img">
+          <img src="/img/register.svg">
+        </aside>
         <form action="/register" method="POST" class="form ajax-contact-form">
           <input type="name"  name="name" class="form-name inp" placeholder="Имя*" required>
+          <input type="text"  name="last_name" class="form-name inp" placeholder="Фамилия*" required>
           <input type="text"  name="email" class="form-email inp" placeholder="Почтовый ящик*" required>
           <input type="tel"  name="tel" class="form-tel inp" 
           placeholder="Телефон*" 

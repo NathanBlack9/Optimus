@@ -1,32 +1,32 @@
-var iconPhone = document.querySelector('.fa-phone-alt');
-var iconEmail = document.querySelector('.fa-envelope');
-var iconWhats = document.querySelector('.fa-whatsapp');
-var iconViber = document.querySelector('.fa-viber');
+let iconPhone = $('.fa-phone-alt'),
+    iconEmail = $('.fa-envelope'),
+    iconWhats = $('.fa-whatsapp'),
+    iconViber = $('.fa-viber');
 
-iconPhone.addEventListener('click', () => {
-  iconPhone.classList.toggle('active');
-  iconEmail.classList.remove('active');
-  iconWhats.classList.remove('active');
-  iconViber.classList.remove('active');
+iconPhone.on('click', () => {
+  iconPhone.toggleClass('active');
+  iconEmail.removeClass('active');
+  iconWhats.removeClass('active');
+  iconViber.removeClass('active');
 });
 
-iconEmail.addEventListener('click', () => {
-  iconPhone.classList.remove('active');
-  iconEmail.classList.toggle('active');
-  iconWhats.classList.remove('active');
-  iconViber.classList.remove('active');
+iconEmail.on('click', () => {
+  iconPhone.removeClass('active');
+  iconEmail.toggleClass('active');
+  iconWhats.removeClass('active');
+  iconViber.removeClass('active');
 });
 
-iconWhats.addEventListener('click', () => {
-  iconPhone.classList.remove('active');
-  iconEmail.classList.remove('active');
-  iconWhats.classList.toggle('active');
-  iconViber.classList.remove('active');
+iconWhats.on('click', () => {
+  iconPhone.removeClass('active');
+  iconEmail.removeClass('active');
+  iconWhats.toggleClass('active');
+  iconViber.removeClass('active');
 });
 
-iconViber.addEventListener('click', () => {
-  iconPhone.classList.remove('active');
-  iconEmail.classList.remove('active');
-  iconWhats.classList.remove('active');
-  iconViber.classList.toggle('active');
+iconViber.on('click', () => {
+  iconPhone.removeClass('active');
+  iconEmail.removeClass('active');
+  iconWhats.removeClass('active');
+  iconViber.toggleClass('active');
 });

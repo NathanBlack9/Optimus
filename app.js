@@ -13,7 +13,6 @@ const app = express();
 
 app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/build'));
-// server.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/styles', express.static(__dirname + '/build/styles'))
 
 
