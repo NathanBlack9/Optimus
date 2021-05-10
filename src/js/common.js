@@ -21,33 +21,47 @@ $('form.ajax-contact-form').on('submit', function() {
     url : url, 
     type: method,
     data: data,
-    success: function (response) {
+    success: function (request,response) {
       console.log('success');
       console.log(response);
       let message;
+      
+      switch (url) {
+        case '/contact':
+          message = $('.contact-message');
+          break;
+        case '/login':
+          message = $('.login-message');
+          $('html').css('cursor', 'progress');
+          setInterval(function(){window.location = "/login"}, 1500);
+          break;
+        case '/register':
+          message = $('.register-message');
+          $('html').css('cursor', 'progress');
+          break;
+      }
+      console.log(request);
       message.html(response);
       message.css('color', 'green');
-
-      if(url == '/contact'){
-        message = $('.contact-message');
-      }
-      if(url == '/login'){
-        message = $('.login-message');
-        setInterval(function(){window.location = "/login"}, 1000);
-      }
     },
     error: function (response) {
       console.log('error');
       let message;
       message.css('color', 'red');
 
-      if(url == '/contact'){
-        message = $('.contact-message');
-        message.html('Данные введены некореектно');
-      }
-      if(url == '/login'){
-        message = $('.login-message');
-        message.html('Такого пользователя не существует');
+      switch (url) {
+        case '/contact':
+          message = $('.contact-message');
+          message.html('Данные введены некореектно');
+          break;
+        case '/login':
+          message = $('.login-message');
+          message.html('Такого пользователя не существует');
+          break;
+        case '/register':
+          message = $('.register-message');
+          message.html('Ошибочные данные');
+          break;
       }
     }
   });

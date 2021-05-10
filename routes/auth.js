@@ -5,7 +5,6 @@ import db from './db.js';
 // import session from 'express-session';
 // import morgan from 'morgan';
 
-const app = express();
 const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 var UserName;

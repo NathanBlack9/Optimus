@@ -2,7 +2,7 @@
   "name": "optpostavka",
   "version": "1.0.0",
   "description": "frontend + backend",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "server": "nodemon app",
@@ -33,7 +33,8 @@
     "gulp-uglify-es": "^2.0.0",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -4,15 +4,18 @@ import path from 'path';
 import contact from './routes/contact.js';
 //--login-form
 import auth from './routes/auth.js';
+//--register-form
+import register from './routes/register.js';
 
 const __dirname = path.resolve();
 const port = process.env.port || 8080;
 const app = express();
 
-app.use(express.static(__dirname + '/build'));
-app.use('/styles', express.static(__dirname + 'build/styles'))
-
 app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/build'));
+// server.use(express.static(path.join(__dirname, 'node_modules')));
+app.use('/styles', express.static(__dirname + '/build/styles'))
+
 
 app
   .route('/')
@@ -26,17 +29,13 @@ app
     res.render('catalog', {title: 'Каталог'})
   });
 
-app
-  .route('/register')
-  .get((req, res) => {
-    res.render('register', {title: 'Регистрация'})
-  });
 
 //-------
 
 app.use(express.json());
-app.use('/login', auth);
 app.use('/contact', contact);
+app.use('/login', auth);
+app.use('/register', register);
 
 
 app.listen(port, () => {
