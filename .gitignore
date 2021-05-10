@@ -21,6 +21,7 @@ db.sql
 /views/partials/mapAPI.ejs
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
