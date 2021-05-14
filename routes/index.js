@@ -1,11 +1,7 @@
 import express from 'express';
-import path from 'path';
-import bodyParser from 'body-parser';
 import db from './db.js';
-import bcrypt from 'bcrypt';
 
 const router = express.Router();
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router
   .route('/')
