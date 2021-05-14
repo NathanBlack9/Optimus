@@ -6,7 +6,11 @@
 <body>
   <%- include('./partials/header'); %>
 
-  <%- include('./partials/menuWithout'); %>
+  <%if (Name.length > 0) { %>
+    <%- include('./partials/menuWith'); %>
+  <% } else { %> 
+    <%- include('./partials/menuWithout'); %>
+  <% } %>
   
   <%- include('./partials/assortment'); %>
 

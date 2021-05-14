@@ -32,7 +32,7 @@ $('form.ajax-contact-form').on('submit', function() {
         case '/login':
           message = $('.login-message');
           $('html').css('cursor', 'progress');
-          setInterval(function(){window.location = "/login"}, 1000);
+          setInterval(function(){window.location = "/login"}, 1500);
           break;
         case '/register':
           message = $('.register-message');
@@ -45,13 +45,12 @@ $('form.ajax-contact-form').on('submit', function() {
     error: function (response) {
       console.log('error');
       let message;
-      message.css('color', 'red');
-
+      
       switch (url) {
         case '/contact':
           message = $('.contact-message');
           message.html('Данные введены некореектно');
-          break;
+        break;
         case '/login':
           message = $('.login-message');
           message.html('Такого пользователя не существует');
@@ -61,6 +60,7 @@ $('form.ajax-contact-form').on('submit', function() {
           message.html('Ошибочные данные');
           break;
       }
+      message.css('color', 'red');
     }
   });
 

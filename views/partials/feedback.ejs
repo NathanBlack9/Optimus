@@ -5,49 +5,30 @@
         <p class="title">Отзывы наших клиентов</p>
       </div>
       <div class="slider feedback-slider feedback-slider-js">
-        <div class="feedback-slider__item">
-          <div class="feedback-slider__info">
-            <div class="feedback-slider__about">
-                <p class="feedback-slider__name">Иван Иванов</p>
-                <p class="feedback-slider__location">Москва</p>
-            </div> 
-            <div class="feedback-slider__rating">
-              <span class="feedback-slider__rate">4</span>
-              <img src="img/feedSlider/star.svg" alt="rating" class="feedback-slider__star">
+        <% for(var i=0; i < feedback.count; i++) { %>
+            
+            <div class="feedback-slider__item">
+              <div class="feedback-slider__info">
+                <div class="feedback-slider__about">
+                    <p class="feedback-slider__name"><%= feedback.first_name[i] %> <%= feedback.last_name[i] %></p>
+                    <p class="feedback-slider__location">Москва</p>
+                </div> 
+                <div class="feedback-slider__rating">
+                  <span class="feedback-slider__rate"><%= feedback.rating[i] %></span>
+                  <img src="/img/feedSlider/star.svg" alt="rating" class="feedback-slider__star">
+                </div>
+              </div>
+              <p class="feedback-slider__text">“<%= feedback.comment[i] %>”</p>
             </div>
-          </div>
-          <p class="feedback-slider__text">“Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro possimus laboriosam animi est sapiente eveniet debitis obcaecati sed voluptatibus exercitationem assumenda nihil nobis ratione ad quod error, repellendus nostrum dicta.”</p>
-        </div>
-        <div class="feedback-slider__item">
-          <div class="feedback-slider__info">
-            <div class="feedback-slider__about">
-                <p class="feedback-slider__name">Иван Иванов</p>
-                <p class="feedback-slider__location">Москва</p>
-            </div> 
-            <div class="feedback-slider__rating">
-              <span class="feedback-slider__rate">4</span>
-              <img src="img/feedSlider/star.svg" alt="rating" class="feedback-slider__star">
-            </div>
-          </div>
-          <p class="feedback-slider__text">“Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro possimus laboriosam animi est sapiente eveniet debitis obcaecati sed voluptatibus exercitationem assumenda nihil nobis ratione ad quod error, repellendus nostrum dicta.”</p>
-        </div>
-        <div class="feedback-slider__item">
-          <div class="feedback-slider__info">
-            <div class="feedback-slider__about">
-                <p class="feedback-slider__name">Иван Иванов</p>
-                <p class="feedback-slider__location">Москва</p>
-            </div> 
-            <div class="feedback-slider__rating">
-              <span class="feedback-slider__rate">4</span>
-              <img src="img/feedSlider/star.svg" alt="rating" class="feedback-slider__star">
-            </div>
-          </div>
-          <p class="feedback-slider__text">“Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro possimus laboriosam animi est sapiente eveniet debitis obcaecati sed voluptatibus exercitationem assumenda nihil nobis ratione ad quod error, repellendus nostrum dicta.”</p>
-        </div>
+
+       <% } %>
       </div>
-      <div class="btn__area">
-        <a href="#!" data-modal="" class="btn"><span>Оставить отзыв</span></a>
-      </div>
+
+      <%if (Name.length > 0) { %>
+        <div class="btn__area">
+          <a href="#!" class="btn"><span>Оставить отзыв</span></a>
+        </div>
+      <% } %>   
     </div>
   </div>
 </section>
