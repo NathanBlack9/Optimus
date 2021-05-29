@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <%- include('./partials/menuWithout'); %>
+
+  <section class="restore">
+    <div class="container">
+      <div class="restore__inner">
+        <div class="title__block modal-title shadow">
+          <p class="title">Восстановление пароля</p>
+        </div>
+        <aside class="aside__img">
+          <img src="/img/restore.svg">
+        </aside>
+
+        <form action="/restore/first" method="post" class="form restore-form-first ajax-contact-form">
+          <p class="restore__step-text"><span>1.</span> Введите Ваш <span>email</span>, используемый для входа.<br>Мы вышлем вам письмо с кодом для восстановления пароля</p>
+          <input type="email" name="email" class="form-email inp shadow" 
+          placeholder="Email" 
+          required>
+          <label class="restore-message"><%= message1 %></label>
+          <div class="btn__area submit">
+            <button class="btn"><span>Отправить</span></button>
+          </div>
+        </form>
+
+        <form action="/restore/second" method="post" class="form ajax-contact-form restore-form-second">
+          <p class="restore__step-text"><span>2.</span> Введите код, который был отправлен на почту, указанную Вами выше</p>
+          <input type="text" name="code" class="inp shadow" 
+          placeholder="Код" 
+          required>
+          <label class="restore-message"><%= message2 %></label>
+          <div class="btn__area submit">
+            <button class="btn"><span>Отправить</span></button>
+          </div>
+        </form>
+        
+        <form action="/restore/third" method="post" class="form ajax-contact-form restore-form-third">
+          <p class="restore__step-text"><span>3.</span> Введите новый пароль</p>
+          <input type="password" name="password1" class="inp form-password " 
+            placeholder="Новый пароль" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            maxlength="20"
+            title="Пароль должен содержать от 8 до 20 символов, из них хотя бы одной цифры и одной прописной буквы латинского алфавита"
+            required>
+          <input type="password" name="password2" class="inp form-password shadow" 
+            placeholder="Введите пароль еще раз" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            maxlength="20"
+            title="Пароли должны полностью совпадать"
+            required>
+          <a href="#!" class="password-control restore__password-control"></a>
+          <label class="restore-message"><%= message3 %></label>
+          <div class="btn__area submit">
+            <button class="btn"><span>Сохранить</span></button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
+  <%- include('./partials/scripts'); %>
+</body>
+</html>

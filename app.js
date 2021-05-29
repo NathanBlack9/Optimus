@@ -8,9 +8,12 @@ import contact from './routes/contact.js';
 import auth from './routes/auth.js';
 //--register-form
 import register from './routes/register.js';
+//--restore-form
+import restore from './routes/restore.js';
+
 
 const __dirname = path.resolve();
-const port = process.env.port || 8080;
+const port = process.env.port || 3000;
 const app = express();
 
 app.set('view engine', 'ejs')
@@ -30,6 +33,7 @@ app.use('/', index);
 app.use('/contact', contact);
 app.use('/login', auth);
 app.use('/register', register);
+app.use('/restore', restore);
 
 
 app.listen(port, () => {

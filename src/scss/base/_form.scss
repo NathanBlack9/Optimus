@@ -49,6 +49,11 @@
     } 
   }
 
+  .restore__password-control {
+    top: 48%;
+    right: 6%;
+  }
+
   &-close {
     position: absolute;
     top: 40px;
@@ -140,7 +145,8 @@
 
 .login-message,
 .contact-message,
-.register-message {
+.register-message,
+.restore-message {
   min-height: 14px;
   font-size: 14px;
   margin-bottom: 10px;

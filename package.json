@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "crypto-random-string": "^4.0.0",
     "mysql2": "^2.2.5"
   },
   "repository": {

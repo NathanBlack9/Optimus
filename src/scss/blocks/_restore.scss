@@ -1,0 +1,57 @@
+.restore {
+  width: 100%;
+  margin: 30px 0;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 270px 69px;
+    box-shadow: 5px 6px 22px #BB8927;
+  }
+
+  .aside__img {
+    display: block;
+    position: absolute;
+    left: 60px;
+    top: 50px;
+  }
+
+  &__step{
+
+    &-text {
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 18px;
+      margin-bottom: 20px;
+
+      span {
+        font-weight: bold;
+
+        &:nth-child(2) {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &-message {
+    margin-bottom: 10px;
+  }
+
+  &-form {
+
+    &-first {
+      display: flex;
+    }
+    
+    &-second {
+      display: flex;
+    }
+
+    &-third {
+      display: flex;
+    }
+  }
+}

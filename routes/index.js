@@ -28,7 +28,7 @@ router
         comms = await db.promise().query(`select comment from Feedback where id = ${i};`);
         comment[i-1] = comms[0][0].comment;
       }
-
+      // console.log(count, firstName, lastName, rating, comment);
     //-------------
     res.render('index', {title: 'ОптПоставка', Name: '', feedback: {first_name: firstName, last_name: lastName, rating: rating, comment: comment, count: count}})
   });

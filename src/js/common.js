@@ -24,11 +24,8 @@ $('form.ajax-contact-form').on('submit', function() {
     success: function (response) {
       console.log('success');
       let message;
-      
+      console.log(url);
       switch (url) {
-        case '/contact':
-          message = $('.contact-message');
-          break;
         case '/login':
           message = $('.login-message');
           $('html').css('cursor', 'progress');
@@ -37,6 +34,9 @@ $('form.ajax-contact-form').on('submit', function() {
         case '/register':
           message = $('.register-message');
           $('html').css('cursor', 'progress');
+          break;
+        case '/contact':
+          message = $('.contact-message');
           break;
       }
       message.html(response);
