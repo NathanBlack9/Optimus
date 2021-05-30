@@ -7,6 +7,223 @@
   <%- include('./partials/header'); %>  
   <%- include('./partials/menuWithout'); %>
 
+  <section class="catalog">
+    <div class="container">
+      <form action="/catalog/search" method="GET" class="form ajax-contact-form"> 
+        <input type="search" class="form-search inp" placeholder="Поиск">
+        <img src="/img/catalog/search.png" alt="search" class="form__search-img">
+        <div class="btn__area submit">
+          <button class="btn"><span>Найти</span></button>
+        </div>
+      </form>
+
+      <div class="catalog__inner">
+        <aside class="catalog__filter">
+          <form action="/filter/" method="post" class="form ajax-contact-form filter-form">
+
+            <div class="filter-money">
+              <h4 class="filter-title">Цена</h4>
+              <div class="filter-money__item">
+                <span class="filter-money__text">от</span>
+                <input type="text" class="filter-money__start" value="1000">
+                <span class="filter-money__text">Р</span>
+              </div>
+              <div class="filter-money__item">
+                <span class="filter-money__text">до</span>
+                <input type="text" class="filter-money__start" value="100000">
+                <span class="filter-money__text">Р</span>
+              </div>
+            </div>
+          
+            <div class="btn__area submit">
+              <button class="btn"><span>Применить фильтры</span></button>
+            </div>
+
+            
+            <div class="filter-brand filter js-filter">
+              <select name="select__brand" class="filter-brand__select select js-select">
+                <option disabled selected>Марка</option>
+                <option value="man">Man</option>
+                <option value="scania">SCANIA</option>
+                <option value="iveco">IVECO</option>
+                <option value="shantui">SHANUI</option>
+                <option value="mercedes">MERCEDES</option>
+                <option value="kamaz">KAMAZ</option>
+                <option value="daf">DAF</option>
+                <option value="volvo">VOLVO</option>
+                <option value="renault">renault</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter">
+              <select name="select__brand" class="filter-model__select select js-select">
+                <option disabled selected>Модель</option>
+                <option value="p">P</option>
+                <option value="t">T</option>
+                <option value="g">G</option>
+                <option value="r">R</option>
+              </select>
+            </div>
+
+            <div class="filter-country filter js-filter">
+              <select name="select__brand" class="filter-country__select select js-select">
+                <option disabled selected>Страна</option>
+                <option value="germany">Германия</option>
+                <option value="italy">Италия</option>
+                <option value="russia">Россия</option>
+                <option value="spain">Испания</option>
+                <option value="china">Китай</option>
+                <option value="sweden">Швеция</option>
+              </select>
+            </div>
+          </form>
+
+        </aside>
+        <div class="catalog__item">
+          <div class="catalog__sort">
+            <p class="catalog__sort-title">Сортировать:</p>
+            <a href="#!" class="catalog__sort-link">сначало дешевые</a>
+            <a href="#!" class="catalog__sort-link">сначало дорогие</a>
+            <a href="#!" class="catalog__sort-link">по маркам</a>
+          </div>
+
+          <div class="catalog__body">
+            
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            <div class="catalog__product">
+              <div class="catalog__product-img">
+                <img src="/img/f/products/default.svg" alt="product">
+              </div>
+              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
+              <div class="catalog__product-middle">
+                <p class="catalog__product-for">
+                  Для
+                  <span>Scania</span>
+                  <span>P</span>
+                </p>
+                <div class="catalog__product-country">Германия</div>
+              </div>
+              <div class="catalog__product-under">
+                <p class="catalog__product-price">14 000 руб</p>
+                <a href="#!" class="catalog__product-btn">Купить</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
   <%- include('./partials/scripts'); %>
 </body>
 </html>
