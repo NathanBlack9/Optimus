@@ -17,12 +17,13 @@ router
             last_name = req.body.last_name;
       await db.promise().query(`insert into Auth set e_mail = '${email}', password = '${hashedPassword}'`);
       await db.promise().query(`insert into Users set first_name = '${name}', last_name = '${last_name}', phone = '${tel}'`);
-      res.status(200);
-      res.render('register', {title: 'Регистрация', message: 'Вы успешно зарегистрировались!'});
+      res.status(200).render('index', {title: 'ОптПоставка', Name: [name], feedback: {}});
+      // res.render('register', {title: 'Регистрация', message: 'Вы успешно зарегистрировались!'});
+      
     } catch (error) {
       console.log(error);
       res.status(500);
-      setInterval(() => {res.render('register', {title: 'Регистрация', message: 'Что-то пошло не так..'})}, 2000);
+      res.render('register', {title: 'Регистрация', message: 'Такой пользователь уже есть в базе'});
     }
   });
 

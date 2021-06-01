@@ -2,18 +2,22 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import db from './db.js';
 import bcrypt from 'bcrypt';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
 
 const router = express.Router();
-
+const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 var UserName;
+
+app.use(express.json());
 
 router
   .route('/')
   .post(urlencodedParser, async (req, res, next) => {
     // console.log(req.body);//само сообщение
     const results = await db.promise().query(`select * from Auth`);
-    
+
       let i = 0;
       while (i < results[0].length){ 
         try {
@@ -22,11 +26,14 @@ router
           if (await bcrypt.compare(req.body.password, results[0][i].password) && results[0][i].e_mail === req.body.email){
             UserName = await db.promise().query(`select first_name from Users where id = ${results[0][i].id}`);
             UserName = UserName[0][0].first_name;
+            req.session.user = {login: results[0][i].e_mail} ;
+            console.log(req.session);
             res.status(200).send('Вы успешно авторизовались! <br>Добро пожаловать');
             break;
           }
         } catch (error) {
-          res.status(500).send();
+          res.status(404).send();
+          console.log(error);
           break;
         }
         i++;        
