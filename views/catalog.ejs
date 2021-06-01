@@ -5,7 +5,13 @@
 </head>
 <body>
   <%- include('./partials/header'); %>  
-  <%- include('./partials/menuWithout'); %>
+  
+  <%if (Name) { %>
+    <%- include('./partials/menuWith-back'); %>
+  <% } else { %> 
+    <%- include('./partials/menuWithout'); %>
+  <% } %>
+  
 
   <section class="catalog">
     <div class="container">
@@ -19,6 +25,7 @@
 
       <div class="catalog__inner">
         <aside class="catalog__filter">
+          <aside class="catalog__filter-open__btn js-filter-open"></aside>
           <form action="/filter/" method="post" class="form ajax-contact-form filter-form">
 
             <div class="filter-money">
@@ -79,6 +86,7 @@
           </form>
 
         </aside>
+
         <div class="catalog__item">
           <div class="catalog__sort">
             <p class="catalog__sort-title">Сортировать:</p>
@@ -88,135 +96,33 @@
           </div>
 
           <div class="catalog__body">
-            
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
+            <% for(var i=0; i < products.count; i++) { %>
+              
+              <div class="catalog__product" data-id="<%= products.code[i] %>">
+                <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное" ></div>
+                <div class="catalog__product-img">
+                  <img src='<%= products.img[i] %>' alt="product">
+                </div>
+                <h3 class="catalog__product-name"><%= products.name[i] %></h3>
+                <div class="catalog__product-middle">
+                  <p class="catalog__product-for">
+                    Для
+                    <span><%= products.brand[i] %></span>
+                    <span><%= products.model[i] %></span>
+                  </p>
+                  <div class="catalog__product-country"><%= products.country[i] %></div>
+                </div>
+                <div class="catalog__product-under">
+                  <p class="catalog__product-price"><%= products.price[i] %> руб</p>
+                  <%if (Name) { %>
+                    <a href="#!" class="catalog__product-btn js-product-btn" data-id="<%= products.code[i] %>">Купить</a>
+                    <% } else { %> 
+                    <a href="#!" data-modal="login" class="catalog__product-btn" data-id="<%= products.code[i] %>">Купить</a>
+                  <% } %>
+                </div>
               </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
 
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            <div class="catalog__product">
-              <div class="catalog__product-img">
-                <img src="/img/f/products/default.svg" alt="product">
-              </div>
-              <h3 class="catalog__product-name">Подшипник ступичный передний</h3>
-              <div class="catalog__product-middle">
-                <p class="catalog__product-for">
-                  Для
-                  <span>Scania</span>
-                  <span>P</span>
-                </p>
-                <div class="catalog__product-country">Германия</div>
-              </div>
-              <div class="catalog__product-under">
-                <p class="catalog__product-price">14 000 руб</p>
-                <a href="#!" class="catalog__product-btn">Купить</a>
-              </div>
-            </div>
-            
+            <% } %>
           </div>
         </div>
       </div>

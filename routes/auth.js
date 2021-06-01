@@ -26,7 +26,7 @@ router
           if (await bcrypt.compare(req.body.password, results[0][i].password) && results[0][i].e_mail === req.body.email){
             UserName = await db.promise().query(`select first_name from Users where id = ${results[0][i].id}`);
             UserName = UserName[0][0].first_name;
-            req.session.user = {login: results[0][i].e_mail} ;
+            req.session.user = {name: UserName} ;
             console.log(req.session);
             res.status(200).send('Вы успешно авторизовались! <br>Добро пожаловать');
             break;

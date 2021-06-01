@@ -6,7 +6,7 @@
 <body>
   <%- include('./partials/header'); %>
 
-  <%if (Name.length > 0) { %>
+  <%if (Name) { %>
     <%- include('./partials/menuWith'); %>
   <% } else { %> 
     <%- include('./partials/menuWithout'); %>

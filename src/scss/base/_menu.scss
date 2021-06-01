@@ -38,6 +38,14 @@
       &:not(:last-child) {
         margin-right: 44px;
       }
+
+      &.back--link {
+        @include Underline(white, -10px);
+
+        img {
+          transform: rotateZ(-90deg);
+        }
+      }
     }
   }
 
