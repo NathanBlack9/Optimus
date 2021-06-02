@@ -23,44 +23,36 @@ $('.js-product-btn').on('click', function () {
 
 //Изменить список с моделями при изменении бренда
 $('.js-filter-model').hide();
-$('.js-filter-model.iveco--filter').show();
 
 $('.js-filter-brand').on('change', function () {
   let brandFilter = $('.js-filter-brand option:selected').val();
   console.log(brandFilter);
 
+  $('.js-filter-model').hide();
 
   switch (brandFilter) {
-    case 'iveco':
-      $('.js-filter-model').hide();
+    case 'IVECO':
       $('.js-filter-model.iveco--filter').show();
       break;
-    case 'man':
-      $('.js-filter-model').hide();
+    case 'MAN':
       $('.js-filter-model.man--filter').show();
       break;
-    case 'daf':
-      $('.js-filter-model').hide();
+    case 'DAF':
       $('.js-filter-model.daf--filter').show();
       break;
-    case 'volvo':
-      $('.js-filter-model').hide();
+    case 'VOLVO':
       $('.js-filter-model.volvo--filter').show();
       break;
-    case 'kamaz':
-      $('.js-filter-model').hide();
+    case 'КамАЗ':
       $('.js-filter-model.kamaz--filter').show();
       break;
-    case 'mercedes':
-      $('.js-filter-model').hide();
+    case 'MERCEDES':
       $('.js-filter-model.mercedes--filter').show();
       break;
-    case 'scania':
-      $('.js-filter-model').hide();
+    case 'SCANIA':
       $('.js-filter-model.scania--filter').show();
       break;
-    case 'renault':
-      $('.js-filter-model').hide();
+    case 'RENAULT':
       $('.js-filter-model.renault--filter').show();
       break;
   }

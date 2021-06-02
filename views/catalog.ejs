@@ -45,107 +45,95 @@
             <div class="btn__area submit">
               <button class="btn"><span>Применить фильтры</span></button>
             </div>
-
             
             <div class="filter-brand filter">
               <select name="select__brand" class="filter-brand__select select js-select js-filter-brand">
                 <option disabled selected value="0">Марка</option>
-                <option value="man">Man</option>
-                <option value="scania">SCANIA</option>
-                <option value="iveco">IVECO</option>
-                <option value="mercedes">MERCEDES</option>
-                <option value="kamaz">KAMAZ</option>
-                <option value="daf">DAF</option>
-                <option value="volvo">VOLVO</option>
-                <option value="renault">renault</option>
+                <% for(var i=0; i < filters.brands.length; i++) { %>
+                  <option value="<%= filters.brands[i] %>"><%= filters.brands[i] %></option>
+                <% } %>
               </select>
             </div>
 
             <div class="filter-model filter js-filter-model scania--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="p">P</option>
-                <option value="t">T</option>
-                <option value="g">G</option>
-                <option value="r">R</option>
-              </select>
-            </div>
-
-            <div class="filter-model filter js-filter-model renault--filter">
-              <select name="select__model" class="filter-model__select select js-select ">
-                <option disabled selected value="0">Модель</option>
-                <option value="ares">ARES</option>
-                <option value="manager">MANAGER</option>
-                <option value="c">C</option>
-                <option value="tracer">TRACER</option>
-              </select>
-            </div>
-
-            <div class="filter-model filter js-filter-model mercedes--filter">
-              <select name="select__model" class="filter-model__select select js-select ">
-                <option disabled selected value="0">Модель</option>
-                <option value="actros">ACTROS</option>
-                <option value="antos">ANTOS</option>
-                <option value="accelo">ACCELO</option>
-                <option value="econic">ECONIC</option>
-                <option value="lp">LP</option>
-                <option value="o305">O 305</option>
+                <% for(var i=0; i < filters.models[1].length; i++) { %>
+                  <option value="<%= filters.models[1][i].model %>"><%= filters.models[1][i].model %></option>
+                <% } %>
               </select>
             </div>
 
             <div class="filter-model filter js-filter-model iveco--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="stralis">STRALIS</option>
-                <option value="trakker">TRAKKER</option>
+                <% for(var i=0; i < filters.models[3].length; i++) { %>
+                  <option value="<%= filters.models[3][i].model %>"><%= filters.models[3][i].model %></option>
+                <% } %>
               </select>
             </div>
-
+          
             <div class="filter-model filter js-filter-model man--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="tgs">TGS</option>
-                <option value="d2066">TGX D2066</option>
-                <option value="d2676">TGX D2676</option>
+                <% for(var i=0; i < filters.models[5].length; i++) { %>
+                  <option value="<%= filters.models[5][i].model %>"><%= filters.models[5][i].model %></option>
+                <% } %>
               </select>
             </div>
-
+          
             <div class="filter-model filter js-filter-model daf--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="xf105">XF105</option>
+                <% for(var i=0; i < filters.models[0].length; i++) { %>
+                  <option value="<%= filters.models[0][i].model %>"><%= filters.models[0][i].model %></option>
+                <% } %>
               </select>
             </div>
-
+          
             <div class="filter-model filter js-filter-model volvo--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="fh12">FH12</option>
-                <option value="fe">FE</option>
-                <option value="fm">FM</option>
-                <option value="fh">FH</option>
+                <% for(var i=0; i < filters.models[2].length; i++) { %>
+                  <option value="<%= filters.models[2][i].model %>"><%= filters.models[2][i].model %></option>
+                <% } %>
               </select>
             </div>
-
+          
             <div class="filter-model filter js-filter-model kamaz--filter">
               <select name="select__model" class="filter-model__select select js-select ">
                 <option disabled selected value="0">Модель</option>
-                <option value="43118">43118</option>
-                <option value="43261">43261</option>
-                <option value="43502">43502</option>
-                <option value="65111">65111</option>
+                <% for(var i=0; i < filters.models[4].length; i++) { %>
+                  <option value="<%= filters.models[4][i].model %>"><%= filters.models[4][i].model %></option>
+                <% } %>
               </select>
             </div>
+
+            <div class="filter-model filter js-filter-model renault--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <% for(var i=0; i < filters.models[6].length; i++) { %>
+                  <option value="<%= filters.models[6][i].model %>"><%= filters.models[6][i].model %></option>
+                <% } %>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model mercedes--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <% for(var i=0; i < filters.models[7].length; i++) { %>
+                  <option value="<%= filters.models[7][i].model %>"><%= filters.models[7][i].model %></option>
+                <% } %>
+              </select>
+            </div>
+
 
             <div class="filter-country filter">
               <select name="select__country" class="filter-country__select select js-select">
                 <option disabled selected value="0">Страна</option>
-                <option value="germany">Германия</option>
-                <option value="italy">Италия</option>
-                <option value="russia">Россия</option>
-                <option value="spain">Испания</option>
-                <option value="china">Китай</option>
-                <option value="sweden">Швеция</option>
+                <% for(var i=0; i < filters.countrys.length; i++) { %>
+                  <option value="<%= filters.countrys[i] %>"><%= filters.countrys[i] %></option>
+                <% } %>
               </select>
             </div>
           </form>
@@ -164,7 +152,9 @@
             <% for(var i=0; i < products.count; i++) { %>
               
               <div class="catalog__product" data-id="<%= products.code[i] %>">
-                <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное" ></div>
+                <%if (Name) { %>
+                  <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное" ></div>
+                <% }  %> 
                 <div class="catalog__product-img">
                   <img src='<%= products.img[i] %>' alt="product">
                 </div>
