@@ -43,21 +43,20 @@ router
   .post(urlencodedParser, async (req, res) => {
     // console.log(req.body);//само сообщение
     if (req.body.code === code) 
-      res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: '', message3: ''})
+      res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: ''})
     else 
-      res.status(403).render('restore', {title: 'Восстановление пароля', message1: 'Код неверный', message2: '', message3: ''});
+      res.status(403).render('restore', {title: 'Восстановление пароля', message1: 'Такого пользователя не существует', message2: 'Код неверный', message3: ''});
   });
 
 router
   .route('/third')
   .post(urlencodedParser, async (req, res) => {
-    console.log(req.body);//само сообщение
-    console.log(email);
+    // console.log(req.body);//само сообщение
     try {
       if (req.body.password1 === req.body.password2) {
         const hashedPassword = await bcrypt.hash(req.body.password1, 10);
         await db.promise().query(`update Auth set password = '${hashedPassword}' where e_mail = '${email}';`);
-        res.status(201).render('restore', {title: 'Восстановление пароля', message2: '',  message1: '', message3: 'Пароль успешно изменён!'});
+        res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: 'Пароль успешно изменён!'});
       } 
     } catch (error) {
       res.status(403).render('restore', {title: 'Восстановление пароля', message1: '', message2: '', message3: 'Ошибка'});

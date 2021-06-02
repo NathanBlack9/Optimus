@@ -26,18 +26,18 @@
       <div class="catalog__inner">
         <aside class="catalog__filter">
           <aside class="catalog__filter-open__btn js-filter-open"></aside>
-          <form action="/filter/" method="post" class="form ajax-contact-form filter-form">
+          <form action="/catalog/filter" method="post" class="form ajax-contact-form filter-form">
 
             <div class="filter-money">
               <h4 class="filter-title">Цена</h4>
               <div class="filter-money__item">
                 <span class="filter-money__text">от</span>
-                <input type="text" class="filter-money__start" value="1000">
+                <input type="text" class="filter-money__start" value="1000" name="from">
                 <span class="filter-money__text">Р</span>
               </div>
               <div class="filter-money__item">
                 <span class="filter-money__text">до</span>
-                <input type="text" class="filter-money__start" value="100000">
+                <input type="text" class="filter-money__start" value="100000" name="to">
                 <span class="filter-money__text">Р</span>
               </div>
             </div>
@@ -47,13 +47,12 @@
             </div>
 
             
-            <div class="filter-brand filter js-filter">
-              <select name="select__brand" class="filter-brand__select select js-select">
-                <option disabled selected>Марка</option>
+            <div class="filter-brand filter">
+              <select name="select__brand" class="filter-brand__select select js-select js-filter-brand">
+                <option disabled selected value="0">Марка</option>
                 <option value="man">Man</option>
                 <option value="scania">SCANIA</option>
                 <option value="iveco">IVECO</option>
-                <option value="shantui">SHANUI</option>
                 <option value="mercedes">MERCEDES</option>
                 <option value="kamaz">KAMAZ</option>
                 <option value="daf">DAF</option>
@@ -62,9 +61,9 @@
               </select>
             </div>
 
-            <div class="filter-model filter js-filter">
-              <select name="select__brand" class="filter-model__select select js-select">
-                <option disabled selected>Модель</option>
+            <div class="filter-model filter js-filter-model scania--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
                 <option value="p">P</option>
                 <option value="t">T</option>
                 <option value="g">G</option>
@@ -72,9 +71,75 @@
               </select>
             </div>
 
-            <div class="filter-country filter js-filter">
-              <select name="select__brand" class="filter-country__select select js-select">
-                <option disabled selected>Страна</option>
+            <div class="filter-model filter js-filter-model renault--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="ares">ARES</option>
+                <option value="manager">MANAGER</option>
+                <option value="c">C</option>
+                <option value="tracer">TRACER</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model mercedes--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="actros">ACTROS</option>
+                <option value="antos">ANTOS</option>
+                <option value="accelo">ACCELO</option>
+                <option value="econic">ECONIC</option>
+                <option value="lp">LP</option>
+                <option value="o305">O 305</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model iveco--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="stralis">STRALIS</option>
+                <option value="trakker">TRAKKER</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model man--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="tgs">TGS</option>
+                <option value="d2066">TGX D2066</option>
+                <option value="d2676">TGX D2676</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model daf--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="xf105">XF105</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model volvo--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="fh12">FH12</option>
+                <option value="fe">FE</option>
+                <option value="fm">FM</option>
+                <option value="fh">FH</option>
+              </select>
+            </div>
+
+            <div class="filter-model filter js-filter-model kamaz--filter">
+              <select name="select__model" class="filter-model__select select js-select ">
+                <option disabled selected value="0">Модель</option>
+                <option value="43118">43118</option>
+                <option value="43261">43261</option>
+                <option value="43502">43502</option>
+                <option value="65111">65111</option>
+              </select>
+            </div>
+
+            <div class="filter-country filter">
+              <select name="select__country" class="filter-country__select select js-select">
+                <option disabled selected value="0">Страна</option>
                 <option value="germany">Германия</option>
                 <option value="italy">Италия</option>
                 <option value="russia">Россия</option>

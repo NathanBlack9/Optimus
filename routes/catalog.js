@@ -11,7 +11,6 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 router
   .route('/')
   .get(async (req, res) => {
-    const Products = await db.promise().query(`select img, product_name, brand, model, country, price from Products where аvailability = 1;`);
     let count = await db.promise().query(`SELECT count(*) as count FROM Products`);
 
     count = count[0][0].count;
@@ -47,23 +46,16 @@ router
       productPrice[i-1] = cache[0][0].price;
     }           
     
+    let Username;
 
     if (req.session.user) {
-        res.render('catalog', {title: 'Каталог', Name: req.session.user.name, 
-        products: {
-          code: vendorCode,
-          img: img, 
-          name: productName, 
-          brand: productBrand,
-          model: productModel,
-          country: productCountry,
-          price: productPrice,
-          count: count
-        } 
-      });
+      Username = req.session.user.name;
     }
     else {
-      res.render('catalog', {title: 'Каталог', Name: '', 
+      Username = '';
+    }
+
+    res.render('catalog', {title: 'Каталог', Name: Username, 
         products: {
           code: vendorCode,
           img: img, 
@@ -75,9 +67,13 @@ router
           count: count
         } 
       });
-    }
+  });
 
-    
+router
+  .route('/filter')
+  .post(urlencodedParser, async (req, res) => {
+    console.log(req.body);
+    res.status(200);
   });
 
 // router
