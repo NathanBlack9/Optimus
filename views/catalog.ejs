@@ -143,15 +143,15 @@
         <div class="catalog__item">
           <div class="catalog__sort">
             <p class="catalog__sort-title">Сортировать:</p>
-            <a href="#!" class="catalog__sort-link">сначало дешевые</a>
-            <a href="#!" class="catalog__sort-link">сначало дорогие</a>
-            <a href="#!" class="catalog__sort-link">по маркам</a>
+              <a href="#!" class="catalog__sort-link js-sort-cheap" name="cheap">сначало дешевые</a>
+              <a href="#!" class="catalog__sort-link js-sort-dear" name="dear">сначало дорогие</a>
+              <a href="#!" class="catalog__sort-link js-sort-brand" name="brand">по маркам</a>
           </div>
 
           <div class="catalog__body">
             <% for(var i=0; i < products.count; i++) { %>
               
-              <div class="catalog__product" data-id="<%= products.code[i] %>">
+              <div class="catalog__product" data-id="<%= products.code[i] %>" data-price="<%= products.price[i] %>">
                 <%if (Name) { %>
                   <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное" ></div>
                 <% }  %> 
@@ -168,7 +168,8 @@
                   <div class="catalog__product-country"><%= products.country[i] %></div>
                 </div>
                 <div class="catalog__product-under">
-                  <p class="catalog__product-price"><%= products.price[i] %> руб</p>
+                  <p class="catalog__product-price js-sort-price"><%= products.price[i] %></p>
+                  <span> руб</span>
                   <%if (Name) { %>
                     <a href="#!" class="catalog__product-btn js-product-btn" data-id="<%= products.code[i] %>">Купить</a>
                     <% } else { %> 

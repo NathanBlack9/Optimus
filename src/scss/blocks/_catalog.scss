@@ -371,8 +371,12 @@
     &-under {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      
+      span {
+        margin-left: 5px;
+      }
     }
 
     &-price {
@@ -388,6 +392,9 @@
       background-color: $red;
       color: white; 
       position: relative;
+      display: block;
+      bottom: 0;
+      right: -75px;
       border: 1px solid $red;
       @include TransitionMix(150ms);
 
