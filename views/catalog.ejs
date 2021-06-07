@@ -16,7 +16,7 @@
   <section class="catalog">
     <div class="container">
       <form action="/catalog/search" method="GET" class="form ajax-contact-form"> 
-        <input type="search" class="form-search inp" placeholder="Поиск">
+        <input type="search" class="form-search inp" placeholder="Поиск" name="search">
         <img src="/img/catalog/search.png" alt="search" class="form__search-img">
         <div class="btn__area submit">
           <button class="btn"><span>Найти</span></button>
@@ -145,7 +145,6 @@
             <p class="catalog__sort-title">Сортировать:</p>
               <a href="#!" class="catalog__sort-link js-sort-cheap" name="cheap">сначало дешевые</a>
               <a href="#!" class="catalog__sort-link js-sort-dear" name="dear">сначало дорогие</a>
-              <a href="#!" class="catalog__sort-link js-sort-brand" name="brand">по маркам</a>
           </div>
 
           <div class="catalog__body">
@@ -170,11 +169,13 @@
                 <div class="catalog__product-under">
                   <p class="catalog__product-price js-sort-price"><%= products.price[i] %></p>
                   <span> руб</span>
-                  <%if (Name) { %>
-                    <a href="#!" class="catalog__product-btn js-product-btn" data-id="<%= products.code[i] %>">Купить</a>
-                    <% } else { %> 
-                    <a href="#!" data-modal="login" class="catalog__product-btn" data-id="<%= products.code[i] %>">Купить</a>
-                  <% } %>
+                    <input type="hidden" name="vendor__code" value="<%= products.code[i] %>">
+                    <%if (Name) { %>
+                      <a href="#!" class="catalog__product-btn js-product-btn" data-id="<%= products.code[i] %>">Купить</a>
+                      <a href="/basket" class="catalog__product-btn in-basket js-hidden-basket__btn" data-id="<%= products.code[i] %>">В корзину</a>
+                      <% } else { %> 
+                      <a href="#!" data-modal="login" class="catalog__product-btn" data-id="<%= products.code[i] %>">Купить</a>
+                    <% } %>
                 </div>
               </div>
 

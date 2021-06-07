@@ -404,6 +404,8 @@
       }
 
       &.in-basket {
+        display: none;
+        right: -55px;
         background-color: transparent;
         border-color: rgba(0, 0, 0, 0.35);
       }

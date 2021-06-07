@@ -358,6 +358,94 @@ router
       });
   });
 
+router
+  .route('/search')
+  .get(async (req, res) => {
+    // console.log(req.query);
+    let img = new Array(),
+        productName = new Array(), 
+        productBrand = new Array(),
+        productModel = new Array(), 
+        productCountry = new Array(),
+        vendorCode = new Array(),
+        productPrice = new Array(),
+        Brands = new Array(),
+        Models = new Array(),
+        Countrys = new Array(),
+        cache, count, search;
+
+    const query = `Products where product_name like "%${req.query.search}%" or brand like "%${req.query.search}%" or model like "%${req.query.search}%" or country like "%${req.query.search}%";`
+    count = await db.promise().query(`SELECT count(*) as count FROM ${query}`);
+    count = count[0][0].count;
+
+    search = await db.promise().query(`SELECT * FROM ${query}`)
+    search = search[0];
+    
+    for (let i = 0; i < search.length; i++) {
+      vendorCode[i] = search[i].vendor_code;
+      img[i] = search[i].img;
+      productName[i] = search[i].product_name;
+      productBrand[i] = search[i].brand;
+      productModel[i] = search[i].model;
+      productCountry[i] = search[i].country;
+      productPrice[i] = search[i].price;
+    }          
+    console.log(productPrice);
+
+    //Brands
+    let co = await db.promise().query(`SELECT COUNT( distinct brand ) as count FROM Products;`);
+    co = co[0][0].count;
+    for (let i = 0; i < co; i++) {
+      cache = await db.promise().query(`select distinct brand from Products;`);
+      Brands[i] = cache[0][i].brand;
+    }
+    //
+
+    //Countrys
+    co = await db.promise().query(`SELECT COUNT( distinct country ) as count FROM Products;`);
+    co = co[0][0].count;
+    for (let i = 0; i < co; i++) {
+      cache = await db.promise().query(`select distinct country from Products;`);
+      Countrys[i] = cache[0][i].country;
+    }
+
+    //Models
+    co = await db.promise().query(`SELECT COUNT( distinct model ) as count FROM Products;`);
+    co = co[0][0].count;
+    for (let j = 0; j < Brands.length; j++) {
+      cache = await db.promise().query(`SELECT distinct model from Products where brand like '%${Brands[j]}%'`);  
+      Models[j] = cache[0];
+    }
+    // console.log(Models);
+    let Username;
+
+    if (req.session.user) {
+      Username = req.session.user.name;
+    }
+    else {
+      Username = '';
+    }
+
+    res.status(200);
+    res.render('catalog', {title: 'Каталог', Name: Username, 
+        products: {
+          code: vendorCode,
+          img: img, 
+          name: productName, 
+          brand: productBrand,
+          model: productModel,
+          country: productCountry,
+          price: productPrice,
+          count: count
+        }, 
+        filters: {
+          brands: Brands,
+          models: Models,
+          countrys: Countrys
+        } 
+      });
+  });
+
 // router
 //   .route('/logined')
 //   .get((req, res) => {

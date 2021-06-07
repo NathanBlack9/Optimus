@@ -14,10 +14,21 @@ $('.js-add-favorite').on('click', function () {
 });
 
 //Изменить ссылку после нажатия на кнопку купить
-$('.js-product-btn').on('click', function () {
-  $(this).addClass('in-basket');
-  $(this).html('В корзину');
-  setTimeout(()=> {$(this).prop("href", "/basket")}, 200);
+$('.js-product-btn').click( function (e) {
+  e.preventDefault();
+  // $this.addClass('in-basket');
+  // $this.html('В корзину');
+  $(this).fadeOut(0);
+  let vendor = $(this).data('id')
+  $(`.js-hidden-basket__btn[data-id=${vendor}]`).fadeIn(0);
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:8080/basket-add",
+    data: {vendor},
+    success: function (response) {
+      // console.log(response);
+    }
+  });
 });
 
 

@@ -15,20 +15,17 @@ app.use(express.json());
 router
   .route('/')
   .post(urlencodedParser, async (req, res, next) => {
-    // console.log(req.body);//само сообщение
     const results = await db.promise().query(`select * from Auth`);
 
       let i = 0;
       while (i < results[0].length){ 
         try {
-          // console.log(await bcrypt.compare(req.body.password, pass));
-          // console.log(req.body);
           if (await bcrypt.compare(req.body.password, results[0][i].password) && results[0][i].e_mail === req.body.email){
             UserName = await db.promise().query(`select first_name from Users where id = ${results[0][i].id}`);
             UserName = UserName[0][0].first_name;
-            req.session.user = {name: UserName} ;
+            req.session.user = {name: results[0][i].id} ;
             console.log(req.session);
-            res.status(200).send('Вы успешно авторизовались! <br>Добро пожаловать');
+            res.status(200).redirect('/login');
             break;
           }
         } catch (error) {

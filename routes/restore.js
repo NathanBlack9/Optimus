@@ -11,9 +11,7 @@ var code, email;
 
 router
   .route('/first')
-  .post(urlencodedParser, async (req, res, next) => {
-    // console.log(req.body);//само сообщение
-
+  .post(urlencodedParser, async (req, res) => {
     const results = await db.promise().query(`select e_mail from Auth;`);
     code = cryptoRandomString({length: 8, type: 'numeric'});
     console.log(code);

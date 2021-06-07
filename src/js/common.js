@@ -13,7 +13,6 @@ $('form.ajax-contact-form').on('submit', function() {
 
     data[name] = value;
   });
-
   // console.log(data);
   console.log(url);
 
@@ -29,7 +28,7 @@ $('form.ajax-contact-form').on('submit', function() {
         case '/login':
           message = $('.login-message');
           $('html').css('cursor', 'progress');
-          setInterval(function(){window.location = "/login"}, 1500);
+          window.location = "/login";
           break;
         case '/register':
           message = $('.register-message');
@@ -49,7 +48,7 @@ $('form.ajax-contact-form').on('submit', function() {
       switch (url) {
         case '/contact':
           message = $('.contact-message');
-          message.html('Данные введены некореектно');
+          message.html('Данные введены некорректно');
         break;
         case '/login':
           message = $('.login-message');
