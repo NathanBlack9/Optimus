@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <%- include('./partials/menuWith-back'); %>
+
+  <section class="basket">
+    <div class="container">
+      <div class="basket__inner">
+        <div class="title__block modal-title">
+          <p class="title">Корзина</p>
+        </div>
+        <a href="#!" class="basket__clear">Очистить</a>
+        <% for(var i=0; i < products.count; i++) { %>
+          
+          <div class="basket__item" data-id="<%= products.code[i] %>">
+            <div class="basket__item-img">
+              <img src="<%= products.img[i] %>" alt="default">
+            </div>
+            <div class="basket__item__text">
+              <div class="basket__item-name"><%= products.name[i] %></div>
+              <div class="basket__item-brand"><span>Марка:</span><%= products.brand[i] %></div>
+              <div class="basket__item-model"><span>Модель:</span><%= products.model[i] %></div>
+              <div class="basket__item-country"><span>Страна:</span><%= products.country[i] %></div>
+              <div class="basket__item-count"><span>Количество:</span>
+                <input type="number" class="inp basket__item-inp" value="<%= products.quantity[i] %>" min="0">
+              </div>
+            </div>
+            <div class="basket__item-price js-basket__product-price" data-price="<%= products.price[i] %>">
+              <%= products.price[i] %>
+              <span> руб.</span>
+            </div>
+            <a href="#!" class="basket__item-remove"></a>
+          </div>
+
+        <% } %>
+
+
+        <div class="basket__total">
+          <span>Итого:</span>
+          <p class="js-basket__price-total"></p>
+          <span>руб.</span>
+        </div>
+        <div class="btn__area">
+          <a href="#!" class="btn"><span>Оформить заказ</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
+  <%- include('./partials/scripts'); %>
+</body>
+</html>

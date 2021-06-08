@@ -75,16 +75,14 @@ router
       Models[j] = cache[0];
     }
     // console.log(Models);
-    let Username;
-
+    let UserName
     if (req.session.user) {
-      Username = req.session.user.name;
+      UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+      UserName = UserName[0][0].first_name;
     }
-    else {
-      Username = '';
-    }
+    else UserName = ''
 
-    res.render('catalog', {title: 'Каталог', Name: Username, 
+    res.render('catalog', {title: 'Каталог', Name: UserName, 
         products: {
           code: vendorCode,
           img: img, 
@@ -329,10 +327,11 @@ router
       Models[j] = cache[0];
     }
     // console.log(Models);
-    let Username;
+    let Username
 
     if (req.session.user) {
-      Username = req.session.user.name;
+      Username = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+      Username = Username[0][0].first_name;
     }
     else {
       Username = '';
@@ -417,17 +416,17 @@ router
       Models[j] = cache[0];
     }
     // console.log(Models);
-    let Username;
-
+    let UserName
     if (req.session.user) {
-      Username = req.session.user.name;
+      UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+      UserName = UserName[0][0].first_name;
     }
     else {
-      Username = '';
+      UserName = '';
     }
 
     res.status(200);
-    res.render('catalog', {title: 'Каталог', Name: Username, 
+    res.render('catalog', {title: 'Каталог', Name: UserName, 
         products: {
           code: vendorCode,
           img: img, 

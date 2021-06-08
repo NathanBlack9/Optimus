@@ -16,6 +16,8 @@ import register from './routes/register.js';
 import restore from './routes/restore.js';
 //add to basket
 import basketAdd from './routes/basketAdd.js';
+//basket-page
+import basket from './routes/basket.js';
 
 
 const __dirname = path.resolve();
@@ -43,6 +45,7 @@ app.use('/login', auth);
 app.use('/register', register);
 app.use('/restore', restore);
 app.use('/basket-add', basketAdd);
+app.use('/basket', basket);
 
 app.get('/logout', function(req, res){
   req.session.destroy(function(){

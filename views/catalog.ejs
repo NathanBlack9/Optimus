@@ -12,7 +12,6 @@
     <%- include('./partials/menuWithout'); %>
   <% } %>
   
-
   <section class="catalog">
     <div class="container">
       <form action="/catalog/search" method="GET" class="form ajax-contact-form"> 
@@ -152,7 +151,7 @@
               
               <div class="catalog__product" data-id="<%= products.code[i] %>" data-price="<%= products.price[i] %>">
                 <%if (Name) { %>
-                  <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное" ></div>
+                  <div class="catalog__product-rate js-add-favorite" data-id="<%= products.code[i] %>" title="В избранное"></div>
                 <% }  %> 
                 <div class="catalog__product-img">
                   <img src='<%= products.img[i] %>' alt="product">
@@ -169,7 +168,6 @@
                 <div class="catalog__product-under">
                   <p class="catalog__product-price js-sort-price"><%= products.price[i] %></p>
                   <span> руб</span>
-                    <input type="hidden" name="vendor__code" value="<%= products.code[i] %>">
                     <%if (Name) { %>
                       <a href="#!" class="catalog__product-btn js-product-btn" data-id="<%= products.code[i] %>">Купить</a>
                       <a href="/basket" class="catalog__product-btn in-basket js-hidden-basket__btn" data-id="<%= products.code[i] %>">В корзину</a>
