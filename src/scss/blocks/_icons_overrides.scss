@@ -13,12 +13,20 @@
   font-size: 32px;
   text-shadow: 5px 3px 4px rgba(0, 0, 0, 0.35);
 
+  @media only screen and (max-width: 550px) {
+    font-size: 30px;
+  }
+
   &.active{
     color: #0FF041;
     outline: none;
 
     &+.header_icon-info{
       font-size: 26px;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -26,12 +34,20 @@
 .fa-envelope{
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.35);
 
+  @media only screen and (max-width: 550px) {
+    font-size: 35px;
+  }
+
   &.active{
     color: #08A6FE;
     outline: none;
 
     &+.header_icon-info{
       font-size: 26px;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -39,12 +55,20 @@
 .fa-whatsapp{
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.35);
   
+  @media only screen and (max-width: 550px) {
+    font-size: 35px;
+  }
+
   &.active{
     color: #0FF041;
     outline: none;
 
     &+.header_icon-info{
       font-size: 26px;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -53,12 +77,20 @@
   font-size: 40px;
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.35);
 
+  @media only screen and (max-width: 550px) {
+    font-size: 30px;
+  }
+
   &.active{
     color: #7000FE;
     outline: none;
   
     &+.header_icon-info{
       font-size: 26px;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 14px;
+      }
     }
   }
 }

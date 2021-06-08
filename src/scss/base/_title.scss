@@ -7,6 +7,10 @@
   position: relative;
   z-index: 1;
 
+  @media only screen and (max-width: 550px) {
+    z-index: 0;
+  }
+
   &__block{
     width: 504px;
     height: 180px;
@@ -22,6 +26,10 @@
       width: 495px;
       height: 96px; 
       margin-bottom: 0;
+
+      @media only screen and (max-width: 1024px) {
+        width: 100%;
+      }
     }
   }
 }

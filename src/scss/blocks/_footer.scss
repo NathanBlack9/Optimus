@@ -1,6 +1,12 @@
 .footer {
   width: 100%;
 
+  .container {
+    @media only screen and (max-width: 550px) {
+      padding: 0 15px;
+    }
+  }
+
   &__inner {
     display: flex;
     flex-direction: row;

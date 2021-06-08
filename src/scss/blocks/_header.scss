@@ -4,6 +4,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media only screen and (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 65px;
+    }
   }
 
   &__logo{
@@ -11,16 +17,30 @@
     color: black;
     text-decoration: none;
 
+    @media only screen and (max-width: 1024px) {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
     &-title{
       font-weight: bold;
       font-size: 36px;
       line-height: 46px;
+      
+      @media only screen and (max-width: 550px) {
+        font-size: 32px;
+        line-height: 35px;
+      }
     }
 
     &-subtitle{
       font-weight: 600;
       font-size: 18px;
       line-height: 23px;
+
+      @media only screen and (max-width: 550px) {
+        font-size: 16px;
+      }
     }
   }
 

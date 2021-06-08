@@ -12,20 +12,6 @@ $(document).ready(function(){
       draggable:true,
       swipe:true,
       variableWidth:false
-      // responsive:[
-      //     {
-      //         breakpoint: 1270,
-      //         settings:{
-      //             dots:true,
-      //             autoplay:false,
-      //             draggable:true,
-      //             swipe:true,
-      //             touchThreshold:100,
-      //             slidesToShow:1,
-      //             autoplaySpeed: 3500,
-      //         }
-      //     }
-      // ]
   });
   $('.feedback-slider-js').slick({
       arrows: true,
