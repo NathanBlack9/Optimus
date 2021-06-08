@@ -38,3 +38,19 @@ $('.js-sort-dear').on('click', () => {
 function insertAfter(elem, refElem ) {
   return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
 }
+
+
+$('.ajax-profile-form').submit(function (e) { 
+  e.preventDefault();
+  $.post(
+		'/profile', 
+		 $(".ajax-profile-form").serialize(),  		
+		
+		function(res) { 
+        let message = $('.profile__message');
+        $('html').css('cursor', 'progress');
+        message.html(res).css('color', 'green');
+		}
+	);
+	return false;
+});

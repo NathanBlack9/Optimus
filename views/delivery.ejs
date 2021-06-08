@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <%- include('./partials/menuWith-back'); %>
+
+  <section class="profile">
+    <div class="container">
+      <div class="profile__inner">
+        <div class="title__block modal-title">
+          <p class="title">Оформление заказа</p>
+        </div>
+        <aside class="aside__img">
+          <img src="/img/delivery.svg">
+        </aside>
+        <form action="/delivery" method="post" class="form delivery-form">
+          <input type="text"  name="address" class="form-email inp" placeholder="Адрес" required>
+          <input type="date" name="date" value="2021-06-01" class="form-email inp">
+
+          <p class="delivery__message"></p>
+          <div class="btn__area submit">
+            <button class="btn"><span>Заказать</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
+  <%- include('./partials/scripts'); %>
+</body>
+</html>

@@ -31,6 +31,20 @@ $('.js-product-btn').click( function (e) {
   });
 });
 
+$('.delivery-form').submit(function (ev) { 
+  ev.preventDefault();
+  $.post(
+		'/delivery', 
+		 $(".delivery-form").serialize(),  		
+		
+		function(msg) {  
+        let message = $('.delivery__message');
+        $('html').css('cursor', 'progress');
+        message.html(msg).css('color', 'green');
+		}
+	);
+	return false;
+});
 
 //Изменить список с моделями при изменении бренда
 $('.js-filter-model').hide();

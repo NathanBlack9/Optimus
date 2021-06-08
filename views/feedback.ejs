@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <%- include('./partials/menuWith-back'); %>
+
+  <section class="profile">
+    <div class="container">
+      <div class="profile__inner">
+        <div class="title__block modal-title">
+          <p class="title">Написать отзыв</p>
+        </div>
+        <aside class="aside__img">
+          <img src="/img/feedback.svg">
+        </aside>
+        <form action="/feedback" method="post" class="form feedback-form">
+          <input type="text"  name="city" class="form-email inp" placeholder="Город*" required>
+          <textarea class="form-text inp" name="text" placeholder="Текст отзыва*" required></textarea>
+          <div class="feedback__rating" >
+            <span>Оценка:</span>
+            <input id="radio-1" type="radio" name="rating" class="feedback__rating-icon" value="1" required> 
+            <label for="radio-1"></label>
+
+            <input id="radio-2" type="radio" name="rating" class="feedback__rating-icon" value="2" >
+            <label for="radio-2"></label>
+
+            <input id="radio-3" type="radio" name="rating" class="feedback__rating-icon" value="3" >
+            <label for="radio-3"></label>
+
+            <input id="radio-4" type="radio" name="rating" class="feedback__rating-icon" value="4" >
+            <label for="radio-4"></label>
+
+            <input id="radio-5" type="radio" name="rating" class="feedback__rating-icon" value="5" >
+            <label for="radio-5"></label>
+
+          </div>
+          <p class="feedback__message"></p>
+          <div class="btn__area submit">
+            <button class="btn ajax-profile-submit"><span>Отправить отзыв</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
+  <%- include('./partials/scripts'); %>
+</body>
+</html>

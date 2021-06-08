@@ -5,7 +5,11 @@
 </head>
 <body>
   <%- include('./partials/header'); %>
-  <%- include('./partials/menuWithout'); %>
+  <%if (Name) { %>
+    <%- include('./partials/menuWith'); %>
+  <% } else { %> 
+    <%- include('./partials/menuWithout'); %>
+  <% } %>
 
   <section class="restore">
     <div class="container">

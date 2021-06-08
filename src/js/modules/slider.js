@@ -35,7 +35,7 @@ $(document).ready(function(){
       slidesToScroll:1,
       speed: 500,
       infinite:true,
-      autoplay:false,
+      autoplay:true,
       autoplaySpeed: 2000,
       draggable:true,
       swipe:true,

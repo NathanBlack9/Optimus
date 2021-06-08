@@ -7,3 +7,17 @@ for(let i=0; i<$('.js-basket__product-price').length; i++){
 }
 
 $('.js-basket__price-total').html(total);
+
+$('.feedback-form').submit(function (e) { 
+  e.preventDefault();
+  $.post(
+		'/feedback', 
+		 $(".feedback-form").serialize(),  		
+		
+		function(res) { 
+        let message = $('.feedback__message');
+        message.html(res).css('color', 'green');
+		}
+	);
+	return false;
+});

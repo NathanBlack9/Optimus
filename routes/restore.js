@@ -28,22 +28,48 @@ router
           то никому не сообщайте код и просто проигнорируйте это сообщение.`
         }
         mailer(message);
-        // res.status(201).send('Сообщение было отправлено');
-        res.status(201).render('restore', {title: 'Восстановление пароля', message1: 'Код был отправлен на вашу почту!', message2: '', message3: ''})
+         let UserName;
+      if (req.session.user) {
+        UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+        UserName = UserName[0][0].first_name;
+      } else
+        UserName = ''
+        
+        res.status(201).render('restore', {title: 'Восстановление пароля', message1: 'Код был отправлен на вашу почту!', message2: '', message3: '', Name: UserName})
         break;
       }
     }
-    res.status(500).render('restore', {title: 'Восстановление пароля', message1: 'Такого пользователя не существует', message2: '', message3: ''});
+      let UserName;
+      if (req.session.user) {
+        UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+        UserName = UserName[0][0].first_name;
+      } else
+        UserName = ''
+    res.status(500).render('restore', {title: 'Восстановление пароля', message1: 'Такого пользователя не существует', message2: '', message3: '', Name: UserName});
   });
 
 router
   .route('/second')
   .post(urlencodedParser, async (req, res) => {
     // console.log(req.body);//само сообщение
-    if (req.body.code === code) 
-      res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: ''})
-    else 
-      res.status(403).render('restore', {title: 'Восстановление пароля', message1: 'Такого пользователя не существует', message2: 'Код неверный', message3: ''});
+    if (req.body.code === code) {
+      let UserName;
+      if (req.session.user) {
+        UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+        UserName = UserName[0][0].first_name;
+      } else
+        UserName = ''
+      res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: '', Name: UserName})
+    }
+    else {
+      let UserName;
+      if (req.session.user) {
+        UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+        UserName = UserName[0][0].first_name;
+      } else
+        UserName = ''
+      res.status(403).render('restore', {title: 'Восстановление пароля', message1: 'Такого пользователя не существует', message2: 'Код неверный', message3: '', Name: UserName});
+    }
   });
 
 router
@@ -54,10 +80,24 @@ router
       if (req.body.password1 === req.body.password2) {
         const hashedPassword = await bcrypt.hash(req.body.password1, 10);
         await db.promise().query(`update Auth set password = '${hashedPassword}' where e_mail = '${email}';`);
-        res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: 'Пароль успешно изменён!'});
+
+        let UserName;
+        if (req.session.user) {
+          UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+          UserName = UserName[0][0].first_name;
+        } else
+          UserName = ''
+        res.status(201).render('restore', {title: 'Восстановление пароля', message2: 'Введите новый пароль',  message1: 'Код был отправлен на вашу почту!', message3: 'Пароль успешно изменён!', Name: UserName});
       } 
     } catch (error) {
-      res.status(403).render('restore', {title: 'Восстановление пароля', message1: '', message2: '', message3: 'Ошибка'});
+      let UserName;
+      if (req.session.user) {
+        UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+        UserName = UserName[0][0].first_name;
+      } else
+        UserName = ''
+
+      res.status(403).render('restore', {title: 'Восстановление пароля', message1: '', message2: '', message3: 'Ошибка', Name: UserName});
       console.log(error);
     }
      
@@ -65,8 +105,15 @@ router
   
 router
   .route('/')
-  .get((req, res) => {
-    res.render('restore', {title: 'Восстановление пароля', message1: '', message2: '', message3: ''});
+  .get(async (req, res) => {
+    let UserName;
+    if (req.session.user) {
+      UserName = await db.promise().query(`select first_name from Users where id = ${req.session.user.name}`);
+      UserName = UserName[0][0].first_name;
+    } else
+      UserName = ''
+
+    res.render('restore', {title: 'Восстановление пароля', message1: '', message2: '', message3: '', Name: UserName});
   });
 
 export default router;

@@ -66,3 +66,4 @@ $('form.ajax-contact-form').on('submit', function() {
   return false;
 });
 //-------------
+

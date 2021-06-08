@@ -11,7 +11,7 @@
               <div class="feedback-slider__info">
                 <div class="feedback-slider__about">
                     <p class="feedback-slider__name"><%= feedback.first_name[i] %> <%= feedback.last_name[i] %></p>
-                    <p class="feedback-slider__location">Москва</p>
+                    <p class="feedback-slider__location"><%= feedback.city[i] %></p>
                 </div> 
                 <div class="feedback-slider__rating">
                   <span class="feedback-slider__rate"><%= feedback.rating[i] %></span>
@@ -26,7 +26,7 @@
 
       <%if (Name) { %>
         <div class="btn__area">
-          <a href="#!" class="btn"><span>Оставить отзыв</span></a>
+          <a href="/feedback" class="btn"><span>Оставить отзыв</span></a>
         </div>
       <% } %>   
     </div>

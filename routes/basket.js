@@ -9,7 +9,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 router
   .route('/')
   .get(async (req, res) => {
-    // if (req.session.user) {
+    if (req.session.user) {
       let count = await db.promise().query(`select count(*) as count from basket where receipt_id = '${req.session.user.name}';`);
       count = count[0][0].count;
       
@@ -57,9 +57,9 @@ router
           count: count
         } 
       });
-    // }
-    // else 
-    //   res.status(401).render('401', {title: 'Не авторизован'});
+    }
+    else 
+      res.status(404).render('404', {title: 'Не найдено'});
   });
 
 export default router;

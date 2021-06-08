@@ -18,6 +18,12 @@ import restore from './routes/restore.js';
 import basketAdd from './routes/basketAdd.js';
 //basket-page
 import basket from './routes/basket.js';
+//profile-page
+import profile from './routes/profile.js';
+//delivery-page
+import delivery from './routes/delivery.js';
+//delivery-page
+import feedback from './routes/feedback.js';
 
 
 const __dirname = path.resolve();
@@ -46,6 +52,9 @@ app.use('/register', register);
 app.use('/restore', restore);
 app.use('/basket-add', basketAdd);
 app.use('/basket', basket);
+app.use('/profile', profile);
+app.use('/delivery', delivery);
+app.use('/feedback', feedback);
 
 app.get('/logout', function(req, res){
   req.session.destroy(function(){
