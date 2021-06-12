@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import db from './db.js';
-import bcrypt from 'bcrypt';
 
 const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -9,24 +8,28 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false })
 router
   .route('/')
   .post(urlencodedParser, async (req, res) => {
-    // console.log(req.body.vendor); //код добавленного товара
-    const sessionUserId = req.session.user.name;
-    let userId, receiptId;
+    const sessionUserId = req.session.user.name; //это также является номером заказа, так как записывается как внутри try
+
+    let alreadyInBasket = await db.promise().query(`select * from Basket where receipt_id = ${sessionUserId} and vendor_code = ${req.body.vendor}`);
+    alreadyInBasket =  alreadyInBasket[0][0];
+
     try {
       await db.promise().query(`insert into receipt values (${sessionUserId}, ${sessionUserId})`); 
-      receiptId = await db.promise().query(`select receipt_id from Receipt where user_id = ${sessionUserId}`); 
-      receiptId = receiptId[0][0].receipt_id;
-      // console.log(receiptId);
-      await db.promise().query(`insert into basket(receipt_id, vendor_code) values (${receiptId}, ${req.body.vendor})`); 
+      
+      if (alreadyInBasket) {
+        await db.promise().query(`update Basket set quantity = quantity + 1 where receipt_id = ${sessionUserId} and vendor_code = ${req.body.vendor};`); 
+      }
+      else
+        await db.promise().query(`insert into basket(receipt_id, vendor_code) values (${sessionUserId}, ${req.body.vendor})`); 
+
     } catch (error) {
-      receiptId = await db.promise().query(`select receipt_id from Receipt where user_id = ${sessionUserId}`); 
-      receiptId = receiptId[0][0].receipt_id;
-      console.log(receiptId);
-      await db.promise().query(`insert into basket(receipt_id, vendor_code) values (${receiptId}, ${req.body.vendor})`); 
+      if (alreadyInBasket) {
+        await db.promise().query(`update Basket set quantity = quantity + 1 where receipt_id = ${sessionUserId} and vendor_code = ${req.body.vendor};`); 
+      }
+      else
+        await db.promise().query(`insert into basket(receipt_id, vendor_code) values (${sessionUserId}, ${req.body.vendor})`); 
     }
     res.end('успешно')
   })
-
-
 
 export default router;

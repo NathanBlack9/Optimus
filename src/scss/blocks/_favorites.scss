@@ -1,0 +1,41 @@
+.favorites {
+
+  &__inner {
+    padding: 80px 0;
+  }
+
+  &__item{
+
+    &-price {
+      font-size: 36px;
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .btn__area {
+    position: absolute;
+    width: auto;
+    margin: 0;
+    bottom: 15px;
+    right: 15px;
+
+    .btn {
+      font-size: 21px;
+      min-width: 290px;
+      min-height: 45px;
+
+      span::before {
+        left: -10px;
+        bottom: 4px;
+        height: 8px;
+      }
+
+      span:hover:before {
+        left: -5px;
+      }
+    }
+  }
+}

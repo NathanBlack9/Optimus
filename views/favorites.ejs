@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body>
+  <%- include('./partials/header'); %>
+  <%- include('./partials/menuWith-back'); %>
+
+  <section class="favorites">
+    <div class="container">
+      <div class="favorites__inner">
+        <div class="title__block modal-title">
+          <p class="title">Избранное</p>
+        </div>
+        <a href="#!" class="basket__clear">Очистить</a>
+
+        <div class="basket__item" data-id="">
+          <div class="basket__item-img">
+            <img src="/img/f/products/default.svg" alt="default">
+          </div>
+          <div class="basket__item__text">
+            <div class="basket__item-name">Запчасть</div>
+            <div class="basket__item-brand"><span>Марка:</span>SCANIA</div>
+            <div class="basket__item-model"><span>Модель:</span>P</div>
+            <div class="basket__item-country"><span>Страна:</span>Германия</div>
+            <div class="favorites__item-price " data-price=""> <!--js-basket__product-price-->
+              14000.00
+              <span> руб.</span>
+            </div>
+          </div>
+          <div class="btn__area">
+            <a href="#!" class="btn js-product-btn" data-id=""><span>Добавить в корзину</span></a>
+          </div>
+          <a href="#!" class="basket__item-remove"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./partials/footer'); %>
+  <%- include('./partials/scripts'); %>
+</body>
+</html>

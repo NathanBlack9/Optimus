@@ -1,9 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import bcrypt from 'bcrypt';
 import db from './db.js';
-import mailer from './mailer.js';
-import cryptoRandomString from 'crypto-random-string';
 
 const router = express.Router();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -47,7 +44,6 @@ router
 
       cache = await db.promise().query(`select price from Products where vendor_code = ${99 + i} and аvailability = 1;`);
       productPrice[i-1] = cache[0][0].price;
-
     }           
 
     //Brands
@@ -212,7 +208,7 @@ router
       else {
 
         if (req.body.select__model){
-          if(!req.body.select__country) 
+          if(!req.body.select__country) {
             //++-
             filter = `(price between ${req.body.from} and ${req.body.to}) and (brand like '%${req.body.select__brand}%') and (model like '%${req.body.select__model}%')`;
             count = await db.promise().query(`SELECT count(*) as count FROM Products where ${filter};`);
@@ -240,6 +236,7 @@ router
               cache = await db.promise().query(`select price from Products where аvailability = 1 and ${filter};`);
               productPrice[i] = cache[0][i].price;
             }
+          }
         }
         else if (req.body.select__country){
           //+-+
@@ -299,8 +296,6 @@ router
           }
         }
       }
-    
-    // console.log(count, vendorCode, productModel);
 
     //Brands
     let co = await db.promise().query(`SELECT COUNT( distinct brand ) as count FROM Products;`);
@@ -309,8 +304,6 @@ router
       cache = await db.promise().query(`select distinct brand from Products;`);
       Brands[i] = cache[0][i].brand;
     }
-    //
-
     //Countrys
     co = await db.promise().query(`SELECT COUNT( distinct country ) as count FROM Products;`);
     co = co[0][0].count;
@@ -318,7 +311,6 @@ router
       cache = await db.promise().query(`select distinct country from Products;`);
       Countrys[i] = cache[0][i].country;
     }
-
     //Models
     co = await db.promise().query(`SELECT COUNT( distinct model ) as count FROM Products;`);
     co = co[0][0].count;
@@ -326,7 +318,6 @@ router
       cache = await db.promise().query(`SELECT distinct model from Products where brand like '%${Brands[j]}%'`);  
       Models[j] = cache[0];
     }
-    // console.log(Models);
     let Username
 
     if (req.session.user) {
@@ -444,11 +435,5 @@ router
         } 
       });
   });
-
-// router
-//   .route('/logined')
-//   .get((req, res) => {
-//     res.render('catalog_logined', {title: 'Каталог'})
-//   });
 
 export default router;

@@ -18,6 +18,8 @@ import restore from './routes/restore.js';
 import basketAdd from './routes/basketAdd.js';
 //basket-page
 import basket from './routes/basket.js';
+//basket-page
+import favorites from './routes/favorites.js';
 //profile-page
 import profile from './routes/profile.js';
 //delivery-page
@@ -52,6 +54,7 @@ app.use('/register', register);
 app.use('/restore', restore);
 app.use('/basket-add', basketAdd);
 app.use('/basket', basket);
+app.use('/favorites', favorites);
 app.use('/profile', profile);
 app.use('/delivery', delivery);
 app.use('/feedback', feedback);
@@ -62,6 +65,10 @@ app.get('/logout', function(req, res){
      console.log(req.session);
   });
   res.redirect('/');
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}...`);
 });
 // app.use(connect.cookieParser());
 // app.use(connect.session({ secret: 'your secret here'} ));
@@ -83,8 +90,3 @@ app.get('/logout', function(req, res){
 //       res.send("Welcome to this page for the first time!");
 //    }
 // });
-
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}...`);
-});

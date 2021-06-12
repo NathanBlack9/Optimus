@@ -296,7 +296,7 @@
     max-width: 32%;
     margin-bottom: 20px;
     box-shadow: 5px 6px 22px #BB8927;
-    padding: 10px 15px 20px;
+    padding: 10px 15px 30px;
     position: relative;
 
     &-img {
@@ -349,7 +349,7 @@
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
 
     &-for {
@@ -391,10 +391,10 @@
       padding: 10px 28px ;
       background-color: $red;
       color: white; 
-      position: relative;
+      position: absolute;
       display: block;
-      bottom: 0;
-      right: -75px;
+      bottom: 20px;
+      right: 12px;
       border: 1px solid $red;
       @include TransitionMix(150ms);
 
@@ -405,11 +405,9 @@
 
       &.in-basket {
         display: none;
-        right: -55px;
         background-color: transparent;
         border-color: rgba(0, 0, 0, 0.35);
       }
     }
   }
-
 }

@@ -16,11 +16,10 @@ $('.js-add-favorite').on('click', function () {
 //Изменить ссылку после нажатия на кнопку купить
 $('.js-product-btn').click( function (e) {
   e.preventDefault();
-  // $this.addClass('in-basket');
-  // $this.html('В корзину');
-  $(this).fadeOut(0);
+
+  $(this).fadeOut();
   let vendor = $(this).data('id')
-  $(`.js-hidden-basket__btn[data-id=${vendor}]`).fadeIn(0);
+  $(`.js-hidden-basket__btn[data-id=${vendor}]`).fadeIn();
   $.ajax({
     type: "POST",
     url: "http://localhost:8080/basket-add",

@@ -2,9 +2,9 @@
 //       htmlmin     = require('gulp-htmlmin'),
 //       browserSync = require('browser-sync');
 
-      import gulp from 'gulp'
-      import browserSync from 'browser-sync'
-      import htmlmin from 'gulp-htmlmin'
+import gulp from 'gulp'
+import browserSync from 'browser-sync'
+import htmlmin from 'gulp-htmlmin'
 
 
 gulp.task('minify-html', () => {
