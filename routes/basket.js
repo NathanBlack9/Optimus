@@ -1,7 +1,9 @@
-import express from 'express';
+import bodyParser from 'body-parser';
+import express, { response } from 'express';
 import db from './db.js';
 
 const router = express.Router();
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router
   .route('/')
@@ -56,4 +58,14 @@ router
       res.status(404).render('404', {title: 'Не найдено'});
   });
 
+router
+  .route('/clear')
+  .post(urlencodedParser , async (req, res) => {
+    let UserID = req.session.user.name;
+
+    await db.promise().query(`delete from Basket where receipt_id = ${UserID};`);
+
+    res.end();
+  })
+  
 export default router;

@@ -13,7 +13,7 @@
         <div class="title__block modal-title">
           <p class="title">Корзина</p>
         </div>
-        <a href="#!" class="basket__clear">Очистить</a>
+        <a href="#!" class="basket__clear js-basket-clear">Очистить</a>
         <% for(var i=0; i < products.count; i++) { %>
           
           <div class="basket__item" data-id="<%= products.code[i] %>">
@@ -37,14 +37,14 @@
           </div>
 
         <% } %>
-
+        <h1 class="basket-empty__message js-empty__message">Корзина пуста</h1>
 
         <div class="basket__total">
           <span>Итого:</span>
           <p class="js-basket__price-total"></p>
           <span>руб.</span>
         </div>
-        <div class="btn__area">
+        <div class="btn__area js-buy">
           <a href="/delivery" class="btn"><span>Оформить заказ</span></a>
         </div>
       </div>
