@@ -11,16 +11,22 @@ $('.js-select').on('click', function () {
 //Изменить иконку для добавления в избранное 
 $('.js-add-favorite').on('click', function () {
   $(this).toggleClass('added');
+  let vendor = $(this).data('id');
+  $.ajax({
+    type: "POST",
+    url: "http://localhost:8080/favorites/add",
+    data: {vendor},
+    success: function (response) {
+      
+    }
+  });
+	return false;
 });
 
 //Изменить ссылку после нажатия на кнопку купить
 $('.js-product-btn').click( function (e) {
   e.preventDefault();
   let parent = $(this).parent().parent();  
-
-  if(parent.hasClass('js-favorite__item')) {
-    parent.fadeOut();
-  }
   
   $(this).fadeOut();
 
@@ -30,7 +36,7 @@ $('.js-product-btn').click( function (e) {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost:8080/basket-add",
+    url: "http://localhost:8080/basket/add",
     data: {vendor},
     success: function (response) {
       // console.log(response);

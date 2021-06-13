@@ -13,27 +13,32 @@
         <div class="title__block modal-title">
           <p class="title">Избранное</p>
         </div>
-        <a href="#!" class="basket__clear">Очистить</a>
+        <a href="#!" class="basket__clear js-favorites-clear">Очистить</a>
+        <% for(var i=0; i < count; i++) { %>
 
-        <div class="basket__item js-favorite__item" data-id="">
-          <div class="basket__item-img">
-            <img src="/img/f/products/default.svg" alt="default">
-          </div>
-          <div class="basket__item__text">
-            <div class="basket__item-name">Запчасть</div>
-            <div class="basket__item-brand"><span>Марка:</span>SCANIA</div>
-            <div class="basket__item-model"><span>Модель:</span>P</div>
-            <div class="basket__item-country"><span>Страна:</span>Германия</div>
-            <div class="favorites__item-price " data-price=""> <!--js-basket__product-price-->
-              14000.00
-              <span> руб.</span>
+          <div class="basket__item js-favorite__item" data-id="<%= favorites[i].vendor_code %>">
+            <div class="basket__item-img">
+              <img src="<%= favorites[i].img %>" alt="default">
             </div>
+            <div class="basket__item__text">
+              <div class="basket__item-name"><%= favorites[i].product_name %></div>
+              <div class="basket__item-brand"><span>Марка:</span><%= favorites[i].brand %></div>
+              <div class="basket__item-model"><span>Модель:</span><%= favorites[i].model %></div>
+              <div class="basket__item-country"><span>Страна:</span><%= favorites[i].country %></div>
+              <div class="favorites__item-price " data-price="<%= favorites[i].price %>"> <!--js-basket__product-price-->
+                <%= favorites[i].price %>
+                <span> руб.</span>
+              </div>
+            </div>
+            <div class="btn__area">
+              <a href="#!" class="btn js-product-btn" data-id="<%= favorites[i].vendor_code %>"><span>Добавить в корзину</span></a>
+            </div>
+            <a href="#!" class="basket__item-remove js-favorites-remove"></a>
           </div>
-          <div class="btn__area">
-            <a href="#!" class="btn js-product-btn" data-id=""><span>Добавить в корзину</span></a>
-          </div>
-          <a href="#!" class="basket__item-remove"></a>
-        </div>
+
+        <% } %>
+
+        <h1 class="basket-empty__message js-empty__message">У вас нет избранных товаров</h1>
       </div>
     </div>
   </section>

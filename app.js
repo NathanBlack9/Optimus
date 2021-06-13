@@ -14,8 +14,6 @@ import auth from './routes/auth.js';
 import register from './routes/register.js';
 //--restore-form
 import restore from './routes/restore.js';
-//add to basket
-import basketAdd from './routes/basketAdd.js';
 //basket-page
 import basket from './routes/basket.js';
 //basket-page
@@ -52,7 +50,6 @@ app.use('/contact', contact);
 app.use('/login', auth);
 app.use('/register', register);
 app.use('/restore', restore);
-app.use('/basket-add', basketAdd);
 app.use('/basket', basket);
 app.use('/favorites', favorites);
 app.use('/profile', profile);
